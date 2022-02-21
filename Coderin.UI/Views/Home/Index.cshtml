@@ -1,0 +1,154 @@
+﻿
+@using Coderin.BLL;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    QuestionRepository questionRepository = new QuestionRepository();
+    AnswerRepository answerRepository = new AnswerRepository();
+    TagQuestionRepository tagQuestionRepository = new TagQuestionRepository();
+}
+<div class="col-md-8 main-content">
+
+    <div class="clearfix"></div>
+    <div class="row select-category">
+        <div itemprop="mainEntityOfPage" class="col-md-6 col-xs-6 current-category">
+            <span itemprop="name">Tüm Sorular</span>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div class="select-categories-wrapper">
+                <div class="outer-filter-wrapper">
+                    <div class="select-categories-filter">
+                        <span class="label-filter">Filtre</span>
+                        <div class="select-categories">
+                            <select name="cat" id="move_to_category" class="select-grey-bg chosen-select">
+                                <option value="0">Etiket Seçiniz</option>
+                                <option class="level-0" value="blog/question-category/accessories/index.html">MVC</option>
+                                <option class="level-0" value="blog/question-category/accounting/index.html">WebForms</option>
+                                <option class="level-0" value="blog/question-category/advice/index.html">WinForms</option>
+                                <option class="level-0" value="blog/question-category/arts/index.html">JQuery</option>
+                                <option class="level-0" value="blog/question-category/automotive/index.html">JavaScript</option>
+                                <option class="level-0" value="blog/question-category/awards/index.html">Java</option>
+                                <option class="level-0" value="blog/question-category/b2b/index.html">IOS</option>
+                                <option class="level-0" value="blog/question-category/backup-and-data-recovery/index.html">Android</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- END SELECT-CATEGORY -->
+    <div class="row question-filter" id="question_filter">
+        <div class="col-md-6 col-xs-6 sort-questions">
+            <ul>
+                <li>
+                    <a class="active" href="index.html">
+                        En Son Sorular
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="index9372.html?sort=vote">
+                        En Çok Oylananlar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Cevapsızlar</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div class="number-of-questions-wrapper">
+                <span class="number-of-questions-text">Sayfada:</span>
+                <div class="number-of-questions">
+                    <select id="filter-numbers" class="select-grey-bg chosen-select">
+                        <option value="indexf6cc.html?numbers=20">20</option>
+                        <option value="index65f9.html?numbers=15">15</option>
+                        <option selected value="indexa1bc.html?numbers=12">12</option>
+                        <option value="index5481.html?numbers=10">10</option>
+                        <option value="index65a2.html?numbers=5">5</option>
+                    </select>
+                </div>
+                <span class="number-of-questions-text"> Adet</span>
+            </div>
+        </div>
+    </div><!-- END QUESTIONS-FILTER -->
+    <div class="main-questions-list">
+        <ul id="main_questions_list">
+            @foreach (var item in questionRepository.GetAll().OrderByDescending(x => x.CreateDate))
+            {
+                <li itemprop="itemListElement" class="question-item post-188 question type-question status-publish hentry question_category-technology qa_tag-apps qa_tag-business-2 qa_tag-glass qa_tag-google qa_tag-technology-2" data-id="188">
+                    <div itemprop="item" s>
+                        <div class="col-md-8 col-xs-8 q-left-content">
+                            <div class="q-ltop-content">
+                                <h2 itemprop="name">
+                                    <a itemprop="url" href="~/Question/Index/@item.NameUrl-@item.Id" class="question-title">@item.Name</a>
+                                </h2>
+                            </div>
+                            <div class="q-lbtm-content">
+                                <div itemprop="text" class="question-excerpt">
+                                    ...
+                                </div>
+                                <div class="question-cat">
+                                    <ul class="question-tags">
+                                        @foreach (Coderin.Entity.TagQuestion item_1 in tagQuestionRepository.GetBy(x => x.QuestionId == item.Id))
+                                        {
+                                            <li>
+                                                <a class="q-tag" href="~/Tag/ByTagNormal/@Coderin.UI.Functions.UrlDuzenle(@item_1.Tag.Name)-@item_1.Tag.Id">
+                                                    @item_1.Tag.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                    <a itemprop="author" itemscope itemtype="http://schema.org/Person" href="blog/member/admin/index.html">
+                                        <span class="author-avatar">
+                                            <img itemprop="image" src="../../../enginethemes.com/demo/qaengine/wp-content/uploads/2015/01/12.jpg" class="avatar" alt="" />
+                                        </span>
+                                        <span itemprop="name" class="author-name">@item.User.Name @item.User.Surname</span>
+                                    </a>
+                                    <span itemprop="dateCreated" datetime="on June 9, 2014" class="question-time">
+                                        Tarih : @item.CreateDate.ToShortDateString()
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end left content -->
+                        <div class="col-md-4 col-xs-4 q-right-content">
+                            <ul class="question-statistic">
+                                <li>
+                                    <span class="question-views">
+                                        @item.Views
+                                    </span>
+                                    Okunma
+                                </li>
+                                <li class="active">
+                                    <span itemprop="answerCount" class="question-answers">
+                                        @answerRepository.GetBy(x => x.QuestionId == @item.Id).Count()
+                                    </span>
+                                    Cevap
+                                </li>
+                                <li>
+                                    <span itemprop="upvoteCount" class="question-votes">
+                                        @item.Vote
+                                    </span>
+                                    Puan
+                                </li>
+                            </ul>
+                            <div class="pumping">
+                            </div>
+                        </div><!-- end right content -->
+                        <div class="clearfix"></div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div><!-- END MAIN-QUESTIONS-LIST -->
+    <div class="row paginations home">
+        <div class="col-md-12">
+            <ul class='page-numbers'>
+                <li><span class='page-numbers current'>1</span></li>
+                <li><a class='page-numbers' href='index4658.html?page=2'>2</a></li>
+                <li><a class="next page-numbers" href="index4658.html?page=2">></a></li>
+            </ul>
+        </div>
+    </div><!-- END MAIN-PAGINATIONS -->
+    <div class="clearfix"></div>
+</div>

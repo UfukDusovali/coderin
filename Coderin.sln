@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coderin.UI", "Coderin.UI\Coderin.UI.csproj", "{8F980097-BF5F-4E2E-BA47-F1F7218F077E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coderin.Entity", "Coderin.Entity\Coderin.Entity.csproj", "{102771BF-D65B-4635-96BB-43F045B300A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coderin.BLL", "Coderin.BLL\Coderin.BLL.csproj", "{D7F1DEB9-C449-4375-94AA-00C0C1FC0519}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coderin.Map", "Coderin.Map\Coderin.Map.csproj", "{A8065F67-F443-4619-A8E9-39190C3B4987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coderin.Base", "Coderin.Base\Coderin.Base.csproj", "{F83C32EF-5F40-42EB-B788-67CAB274FAFC}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://coderin.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Coderin.UI\\Coderin.UI.csproj
+		SccProjectName1 = Coderin.UI
+		SccLocalPath1 = Coderin.UI
+		SccProjectUniqueName2 = Coderin.Entity\\Coderin.Entity.csproj
+		SccProjectName2 = Coderin.Entity
+		SccLocalPath2 = Coderin.Entity
+		SccProjectUniqueName3 = Coderin.BLL\\Coderin.BLL.csproj
+		SccProjectName3 = Coderin.BLL
+		SccLocalPath3 = Coderin.BLL
+		SccProjectUniqueName4 = Coderin.Map\\Coderin.Map.csproj
+		SccProjectName4 = Coderin.Map
+		SccLocalPath4 = Coderin.Map
+		SccProjectUniqueName5 = Coderin.Base\\Coderin.Base.csproj
+		SccProjectName5 = Coderin.Base
+		SccLocalPath5 = Coderin.Base
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F980097-BF5F-4E2E-BA47-F1F7218F077E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F980097-BF5F-4E2E-BA47-F1F7218F077E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F980097-BF5F-4E2E-BA47-F1F7218F077E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F980097-BF5F-4E2E-BA47-F1F7218F077E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{102771BF-D65B-4635-96BB-43F045B300A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{102771BF-D65B-4635-96BB-43F045B300A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{102771BF-D65B-4635-96BB-43F045B300A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{102771BF-D65B-4635-96BB-43F045B300A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F1DEB9-C449-4375-94AA-00C0C1FC0519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F1DEB9-C449-4375-94AA-00C0C1FC0519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F1DEB9-C449-4375-94AA-00C0C1FC0519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F1DEB9-C449-4375-94AA-00C0C1FC0519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8065F67-F443-4619-A8E9-39190C3B4987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8065F67-F443-4619-A8E9-39190C3B4987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8065F67-F443-4619-A8E9-39190C3B4987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8065F67-F443-4619-A8E9-39190C3B4987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F83C32EF-5F40-42EB-B788-67CAB274FAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F83C32EF-5F40-42EB-B788-67CAB274FAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F83C32EF-5F40-42EB-B788-67CAB274FAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F83C32EF-5F40-42EB-B788-67CAB274FAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,121 @@
+﻿@model Coderin.Entity.Tag
+
+@{
+    ViewBag.Title = "ByTag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Coderin.BLL.TagQuestionRepository tagQuestionRepository = new Coderin.BLL.TagQuestionRepository();
+    Coderin.BLL.TagRepository tagRepository = new Coderin.BLL.TagRepository();
+    Coderin.BLL.AnswerRepository answerRepository = new Coderin.BLL.AnswerRepository();
+}
+<div class="col-md-8 main-content">
+    <div class="clearfix"></div>
+    <div class="row select-category">
+        <div class="col-md-6 col-xs-6 current-category">
+            <span itemprop="name">Etiket: @Model.Name</span>
+        </div>
+        <div class="col-md-6 col-xs-6">
+            <div class="number-of-questions-wrapper">
+                <span class="number-of-questions-text">Sayfada </span>
+                <div class="number-of-questions">
+                    <select id="filter-numbers" class="select-grey-bg chosen-select" style="display: none;">
+                        <option value="http://www.demo.enginethemes.com/qaengine/blog/qa-tag/billionaire/?numbers=20">20</option>
+                        <option value="http://www.demo.enginethemes.com/qaengine/blog/qa-tag/billionaire/?numbers=15">15</option>
+                        <option selected="" value="http://www.demo.enginethemes.com/qaengine/blog/qa-tag/billionaire/?numbers=12">12</option>
+                        <option value="http://www.demo.enginethemes.com/qaengine/blog/qa-tag/billionaire/?numbers=10">10</option>
+                        <option value="http://www.demo.enginethemes.com/qaengine/blog/qa-tag/billionaire/?numbers=5">5</option>
+                    </select>
+                </div>
+                <span class="number-of-questions-text">Adet</span>
+            </div>
+        </div>
+    </div>,
+
+
+    <div class="row question-filter" id="question_filter">
+        <div class="col-md-6 col-xs-6 sort-questions">
+            <ul>
+                <li>
+                    <a class="active" href="~/Tag/ByTagNormal/@Coderin.UI.Functions.UrlDuzenle(@Model.Name)-@Model.Id">
+                        En Son
+                    </a>
+                </li>
+                <li>
+                    <a class="" href="http://www.demo.enginethemes.com/qaengine/blog/qa-tag/billionaire/?sort=vote">Puan Sıralamalı</a>
+                </li>
+                <li>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-questions-list">
+        <ul id="main_questions_list">
+            @foreach (Coderin.Entity.TagQuestion item in tagQuestionRepository.GetBy(x => x.TagId == @Model.Id))
+            {
+                <li class="question-item post-78 question type-question status-publish hentry question_category-business qa_tag-billionaire qa_tag-business-2" data-id="78">
+                    <div itemprop="item" itemscope="" itemtype="http://schema.org/Question">
+                        <div class="col-md-8 col-xs-8 q-left-content">
+                            <div class="q-ltop-content">
+                                <h2 itemprop="name">
+                                    <a itemprop="url" href="~/Question/Index/@item.Question.NameUrl-@item.Question.Id" class="question-title">@item.Question.Name</a>
+                                </h2>
+                            </div>
+                            <div class="q-lbtm-content">
+                                <div itemprop="text" class="question-excerpt">
+                                    <p>…</p>
+                                </div>
+                                <div class="question-cat">
+                                    <ul class="question-tags">
+                                        @foreach (Coderin.Entity.TagQuestion item_1 in tagQuestionRepository.GetBy(x => x.QuestionId == item.Question.Id))
+                                        {
+                                            <li>
+                                                <a class="q-tag" href="~/Tag/ByTagNormal/@Coderin.UI.Functions.UrlDuzenle(@item_1.Tag.Name)-@item_1.Tag.Id">
+                                                    @item_1.Tag.Name
+                                                </a>
+                                            </li>
+                                        }
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                    <a itemprop="author" itemscope="" itemtype="http://schema.org/Person" href="http://www.demo.enginethemes.com/qaengine/blog/member/admin/">
+                                        <span class="author-avatar">
+                                            <img itemprop="image" src="http://enginethemes.com/demo/qaengine/wp-content/uploads/2015/01/12.jpg" class="avatar" alt="">
+                                        </span>
+                                        <span itemprop="name" class="author-name">@item.Question.User.Name @item.Question.User.Surname</span>
+                                    </a>
+                                    <span itemprop="dateCreated" datetime="on June 5, 2014" class="question-time">
+                                        Tarih : @item.Question.CreateDate.ToShortDateString()
+                                    </span>
+                                </div>
+                            </div>
+                        </div><!-- end left content -->
+                        <div class="col-md-4 col-xs-4 q-right-content">
+                            <ul class="question-statistic">
+                                <li>
+                                    <span class="question-views">
+                                        @item.Question.Views
+                                    </span>
+                                    Okunma
+                                </li>
+                                <li class="active">
+                                    <span itemprop="answerCount" class="question-answers">
+                                        @answerRepository.GetBy(x => x.QuestionId == @item.Question.Id).Count()
+                                    </span>
+                                    Cevap
+                                </li>
+                                <li>
+                                    <span itemprop="upvoteCount" class="question-votes">
+                                        @item.Question.Vote
+                                    </span>
+                                    Puan
+                                </li>
+                            </ul>
+                            <div class="pumping">
+                            </div>
+                        </div><!-- end right content -->
+                        <div class="clearfix"></div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+
+</div>

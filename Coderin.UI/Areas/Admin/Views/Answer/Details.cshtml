@@ -1,0 +1,40 @@
+﻿@model Coderin.Entity.Answer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<section class="header">
+    <div>
+        <h4>&nbsp; &nbsp; &nbsp; &nbsp; @Model.Name</h4>
+    </div>
+</section>
+<hr />
+<div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-check-circle-o"></i> @Model.Vote</div>
+<br />
+<hr />
+
+<div>
+  
+    <dl class="dl-horizontal">
+
+        <dd>
+          <b>Sorunun Başlığı:</b>  @Model.Question.Name
+        </dd>
+
+        <dd>
+            <b> Cevaplayan Kişi:</b> @Model.User.Name @Model.User.Surname
+</dd>
+
+        <dd>
+            <br />
+            @Html.DisplayFor(model => model.AnswerBody)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

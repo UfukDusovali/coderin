@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html xmlns="http://www.w3.org/1999/xhtml" class="ie8 wp-toolbar"  lang="en-US">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="wp-toolbar"  lang="en-US">
+<!--<![endif]-->
+
+<!-- Mirrored from www.enginethemes.com/demo/qaengine/wp-admin/admin.php?page=et-settings by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Feb 2016 15:18:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Settings &lsaquo; QA Engine - Enginethemes &#8212; WordPress</title>
+<script type="text/javascript">
+addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+var ajaxurl = 'admin-ajax.html',
+	pagenow = 'engine-settings_page_et-settings',
+	typenow = '',
+	adminpage = 'engine-settings_page_et-settings',
+	thousandsSeparator = ',',
+	decimalPoint = '.',
+	isRtl = 0;
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<!--[if lt IE 9]>
+                <script src="http://www.enginethemes.com/demo/qaengine/wp-content/themes/qaengine/includes/aecore/assets/js/html5.js"></script>
+            <![endif]-->		<script type="text/javascript">
+			ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","posts_per_page":"12","homeURL":"http:\/\/www.enginethemes.com\/demo\/qaengine","user_confirm":0,"pending_questions":0,"pending_answers":0,"introURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/intro-2\/","gplus_client_id":"185639095186-qp1uo53pjqb428gp2drtg5o7ladkh10l.apps.googleusercontent.com","plupload_config":{"max_file_size":"3mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap"}}		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' href='load-styles4c76.css?c=0&amp;dir=ltr&amp;load=dashicons,admin-bar,wp-admin,buttons,wp-auth-check&amp;ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&amp;subset=latin%2Clatin-ext&amp;ver=4.4.2' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='ie-css'  href='http://www.enginethemes.com/demo/qaengine/wp-admin/css/ie.min.css?ver=4.4.2' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='admin-css'  href='../wp-content/themes/qaengine/includes/aecore/assets/css/adminc1f9.css?ver=4.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='ae-colorpicker-css'  href='../wp-content/themes/qaengine/includes/aecore/assets/css/colorpickerc1f9.css?ver=4.4.2' type='text/css' media='all' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.2"}};
+			!function(a,b,c){function d(a){var c,d=b.createElement("canvas"),e=d.getContext&&d.getContext("2d"),f=String.fromCharCode;return e&&e.fillText?(e.textBaseline="top",e.font="600 32px Arial","flag"===a?(e.fillText(f(55356,56806,55356,56826),0,0),d.toDataURL().length>3e3):"diversity"===a?(e.fillText(f(55356,57221),0,0),c=e.getImageData(16,16,1,1).data.toString(),e.fillText(f(55356,57221,55356,57343),0,0),c!==e.getImageData(16,16,1,1).data.toString()):("simple"===a?e.fillText(f(55357,56835),0,0):e.fillText(f(55356,57135),0,0),0!==e.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag"),unicode8:d("unicode8"),diversity:d("diversity")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag&&c.supports.unicode8&&c.supports.diversity||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		
+<script type='text/javascript'>
+/* <![CDATA[ */
+var userSettings = {"url":"\/demo\/qaengine\/","uid":"11","time":"1455375750","secure":""};/* ]]> */
+</script>
+<script type='text/javascript' src='load-scripts8014.php?c=0&amp;load%5B%5D=jquery-core,jquery-migrate,utils&amp;ver=4.4.2'></script>
+	<link id="wp-admin-canonical" rel="canonical" href="admin6d2f.html?page=et-settings" />
+	<script>
+		if ( window.history.replaceState ) {
+			window.history.replaceState( null, null, document.getElementById( 'wp-admin-canonical' ).href + window.location.hash );
+		}
+	</script>
+<script type="text/javascript">var _wpColorScheme = {"icons":{"base":"#999","focus":"#00a0d2","current":"#fff"}};</script>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+</head>
+<body class="wp-admin wp-core-ui no-js  engine-settings_page_et-settings auto-fold admin-bar branch-4-4 version-4-4-2 admin-color-fresh locale-en-us multisite no-customize-support no-svg">
+<script type="text/javascript">
+	document.body.className = document.body.className.replace('no-js','js');
+</script>
+
+	<script type="text/javascript">
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+			request = true;
+
+			b[c] = b[c].replace( rcs, ' ' );
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	</script>
+	
+<div id="wpwrap">
+
+<div id="adminmenumain" role="navigation" aria-label="Main menu">
+<a href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
+<a href="#wp-toolbar" class="screen-reader-shortcut">Skip to toolbar</a>
+<div id="adminmenuback"></div>
+<div id="adminmenuwrap">
+<ul id="adminmenu">
+
+
+	<li class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-last" id="menu-dashboard">
+	<a href='index.html' class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-dashboard'><br /></div><div class='wp-menu-name'>Dashboard</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Dashboard</li><li class="wp-first-item"><a href='index.html' class="wp-first-item">Home</a></li><li><a href='my-sites.html'>My Sites</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-generic toplevel_page_et-overview menu-top-first" id="toplevel_page_et-overview"><a href='adminc7e6.html?page=et-overview' class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-generic toplevel_page_et-overview menu-top-first" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-generic'><br /></div><div class='wp-menu-name'>Engine Settings</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Engine Settings</li><li class="wp-first-item"><a href='adminc7e6.html?page=et-overview' class="wp-first-item">Overview</a></li><li class="current"><a href='admin6d2f.html?page=et-settings' class="current">Settings</a></li><li><a href='adminaab9.html?page=et-users'>Members</a></li><li><a href='admine3cb.html?page=et-badge'>User Badges</a></li><li><a href='admin9ddc.html?page=et-payments'>Payments</a></li><li><a href='admin6c23.html?page=et-pump'>Pump Question</a></li><li><a href='adminc9e9.html?page=et-poll'>Poll</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js" id="menu-posts">
+	<a href='edit.html' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-post open-if-no-js" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Posts</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Posts</li><li class="wp-first-item"><a href='edit.html' class="wp-first-item">All Posts</a></li><li><a href='post-new.html'>Add New</a></li><li><a href='edit-tagscb5c.html?taxonomy=category'>Categories</a></li><li><a href='edit-tags6d76.html?taxonomy=post_tag'>Tags</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-poll" id="menu-posts-poll">
+	<a href='edit2694.html?post_type=poll' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-poll" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-chart-pie'><br /></div><div class='wp-menu-name'>Poll Questions</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Poll Questions</li><li class="wp-first-item"><a href='edit2694.html?post_type=poll' class="wp-first-item">Poll Questions</a></li><li><a href='post-new2694.html?post_type=poll'>Add new</a></li><li><a href='edit-tags0aea.html?taxonomy=question_category&amp;post_type=poll'>Category</a></li><li><a href='edit-tagsc27d.html?taxonomy=qa_tag&amp;post_type=poll'>Tags</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-poll_answer" id="menu-posts-poll_answer">
+	<a href='edit967b.html?post_type=poll_answer' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-poll_answer" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-chart-pie'><br /></div><div class='wp-menu-name'>Poll Answers</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Poll Answers</li><li class="wp-first-item"><a href='edit967b.html?post_type=poll_answer' class="wp-first-item">Poll Answers</a></li><li><a href='post-new967b.html?post_type=poll_answer'>Add new</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" id="menu-media">
+	<a href='upload.html' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-media'><br /></div><div class='wp-menu-name'>Media</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Media</li><li class="wp-first-item"><a href='upload.html' class="wp-first-item">Library</a></li><li><a href='media-new.html'>Add New</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" id="menu-pages">
+	<a href='edit3659.html?post_type=page' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-page'><br /></div><div class='wp-menu-name'>Pages</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Pages</li><li class="wp-first-item"><a href='edit3659.html?post_type=page' class="wp-first-item">All Pages</a></li><li><a href='post-new3659.html?post_type=page'>Add New</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-comments" id="menu-comments">
+	<a href='edit-comments.html' class="wp-not-current-submenu menu-top menu-icon-comments" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-comments'><br /></div><div class='wp-menu-name'>Comments <span class="awaiting-mod count-0"><span class="pending-count">0</span></span></div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-pump_pack" id="menu-posts-pump_pack">
+	<a href='edit7e58.html?post_type=pump_pack' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-pump_pack" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Packs</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Packs</li><li class="wp-first-item"><a href='edit7e58.html?post_type=pump_pack' class="wp-first-item">All Packs</a></li><li><a href='post-new7e58.html?post_type=pump_pack'>Add New</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-question" id="menu-posts-question">
+	<a href='edite28a.html?post_type=question' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-question" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Questions</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Questions</li><li class="wp-first-item"><a href='edite28a.html?post_type=question' class="wp-first-item">All Questions</a></li><li><a href='post-newe28a.html?post_type=question'>Add New</a></li><li><a href='edit-tagsfac0.html?taxonomy=question_category&amp;post_type=question'>Category</a></li><li><a href='edit-tagse925.html?taxonomy=qa_tag&amp;post_type=question'>Tags</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-answer" id="menu-posts-answer">
+	<a href='edit3a95.html?post_type=answer' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-answer" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Answers</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Answers</li><li class="wp-first-item"><a href='edit3a95.html?post_type=answer' class="wp-first-item">All Answers</a></li><li><a href='post-new3a95.html?post_type=answer'>Add New</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-report menu-top-last" id="menu-posts-report">
+	<a href='edit0c2e.html?post_type=report' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-report menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Reports</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Reports</li><li class="wp-first-item"><a href='edit0c2e.html?post_type=report' class="wp-first-item">All Reports</a></li><li><a href='post-new0c2e.html?post_type=report'>Add New</a></li><li><a href='edit-tagscd07.html?taxonomy=report-taxonomy&amp;post_type=report'>Reports taxonomy</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator" aria-hidden="true"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" id="menu-appearance">
+	<a href='themes.html' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-appearance'><br /></div><div class='wp-menu-name'>Appearance</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Appearance</li><li class="wp-first-item"><a href='themes.html' class="wp-first-item">Themes</a></li><li class="hide-if-no-customize"><a href='customized89e.html?return=%2Fdemo%2Fqaengine%2Fwp-admin%2Fadmin.php%3Fpage%3Det-settings' class="hide-if-no-customize">Customize</a></li><li><a href='widgets.html'>Widgets</a></li><li><a href='nav-menus.html'>Menus</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-plugins" id="menu-plugins">
+	<a href='plugins.html' class="wp-not-current-submenu menu-top menu-icon-plugins" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-plugins'><br /></div><div class='wp-menu-name'>Plugins </div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" id="menu-users">
+	<a href='users.html' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-users'><br /></div><div class='wp-menu-name'>Users</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Users</li><li class="wp-first-item"><a href='users.html' class="wp-first-item">All Users</a></li><li><a href='user-new.html'>Add New</a></li><li><a href='../wp-login94d6.html'>Your Profile</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" id="menu-tools">
+	<a href='tools.html' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-tools'><br /></div><div class='wp-menu-name'>Tools</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Tools</li><li class="wp-first-item"><a href='tools.html' class="wp-first-item">Available Tools</a></li><li><a href='import.html'>Import</a></li><li><a href='export.html'>Export</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" id="menu-settings">
+	<a href='options-general.html' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-settings'><br /></div><div class='wp-menu-name'>Settings</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head' aria-hidden='true'>Settings</li><li class="wp-first-item"><a href='options-general.html' class="wp-first-item">General</a></li><li><a href='options-writing.html'>Writing</a></li><li><a href='options-reading.html'>Reading</a></li><li><a href='options-discussion.html'>Discussion</a></li><li><a href='options-media.html'>Media</a></li><li><a href='options-permalink.html'>Permalinks</a></li><li><a href='options-general6219.html?page=d_lock_demo_user'>Lock Demo</a></li></ul></li><li id="collapse-menu" class="hide-if-no-js"><div id="collapse-button"><div></div></div><span>Collapse menu</span></li></ul>
+</div>
+</div>
+<div id="wpcontent">
+
+		<div id="wpadminbar" class="nojq nojs">
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-menu-toggle"><a class="ab-item"  href="#"><span class="ab-icon"></span><span class="screen-reader-text">Menu</span></a>		</li>
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="about.html"><span class="ab-icon"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item"  href="about.html">About WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="https://wordpress.org/">WordPress.org</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="https://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="https://wordpress.org/support/">Support Forums</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-my-sites" class="menupop"><a class="ab-item"  aria-haspopup="true" href="my-sites.html">My Sites</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-my-sites-super-admin" class="ab-submenu">
+		<li id="wp-admin-bar-network-admin" class="menupop"><a class="ab-item"  aria-haspopup="true" href="network/index.html">Network Admin</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-network-admin-default" class="ab-submenu">
+		<li id="wp-admin-bar-network-admin-d"><a class="ab-item"  href="network/index.html">Dashboard</a>		</li>
+		<li id="wp-admin-bar-network-admin-s"><a class="ab-item"  href="network/sites.html">Sites</a>		</li>
+		<li id="wp-admin-bar-network-admin-u"><a class="ab-item"  href="network/users.html">Users</a>		</li>
+		<li id="wp-admin-bar-network-admin-t"><a class="ab-item"  href="network/themes.html">Themes</a>		</li>
+		<li id="wp-admin-bar-network-admin-p"><a class="ab-item"  href="network/plugins.html">Plugins</a>		</li>
+		<li id="wp-admin-bar-network-admin-o"><a class="ab-item"  href="network/settings.html">Settings</a>		</li>
+		<li id="wp-admin-bar-network-admin-duplicate"><a class="ab-item"  href="network/sites08c7.html?page=multisite-clone-duplicator">Duplication</a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-my-sites-list" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-blog-1" class="menupop"><a class="ab-item"  aria-haspopup="true" href="index-2.html"><div class="blavatar"></div>QA Engine - Enginethemes</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-blog-1-default" class="ab-submenu">
+		<li id="wp-admin-bar-blog-1-d"><a class="ab-item"  href="index-2.html">Dashboard</a>		</li>
+		<li id="wp-admin-bar-blog-1-n"><a class="ab-item"  href="post-new.html">New Post</a>		</li>
+		<li id="wp-admin-bar-blog-1-c"><a class="ab-item"  href="edit-comments.html">Manage Comments</a>		</li>
+		<li id="wp-admin-bar-blog-1-v"><a class="ab-item"  href="../index.html">Visit Site</a>		</li>
+		<li id="wp-admin-bar-blog-1-duplicate"><a class="ab-item"  href="network/sites8615.html?page=multisite-clone-duplicator&amp;id=1">Duplicate</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-blog-2" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://enginethemes.com/demo/qaengine/preview/wp-admin/"><div class="blavatar"></div>QAEngine | Enginethemes</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-blog-2-default" class="ab-submenu">
+		<li id="wp-admin-bar-blog-2-d"><a class="ab-item"  href="http://enginethemes.com/demo/qaengine/preview/wp-admin/">Dashboard</a>		</li>
+		<li id="wp-admin-bar-blog-2-n"><a class="ab-item"  href="http://enginethemes.com/demo/qaengine/preview/wp-admin/post-new.php">New Post</a>		</li>
+		<li id="wp-admin-bar-blog-2-c"><a class="ab-item"  href="http://enginethemes.com/demo/qaengine/preview/wp-admin/edit-comments.php">Manage Comments</a>		</li>
+		<li id="wp-admin-bar-blog-2-v"><a class="ab-item"  href="http://enginethemes.com/demo/qaengine/preview/">Visit Site</a>		</li>
+		<li id="wp-admin-bar-blog-2-duplicate"><a class="ab-item"  href="network/sitesbc15.html?page=multisite-clone-duplicator&amp;id=2">Duplicate</a>		</li></ul></div>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item"  aria-haspopup="true" href="../index.html">QA Engine - Enginethemes</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+		<li id="wp-admin-bar-view-site"><a class="ab-item"  href="../index.html">Visit Site</a>		</li>
+		<li id="wp-admin-bar-edit-site"><a class="ab-item"  href="network/site-info681a.html?id=1">Edit Site</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-updates"><a class="ab-item"  href="network/update-core.html" title="1 Plugin Update, 3 Theme Updates"><span class="ab-icon"></span><span class="ab-label">4</span><span class="screen-reader-text">1 Plugin Update, 3 Theme Updates</span></a>		</li>
+		<li id="wp-admin-bar-comments"><a class="ab-item"  href="edit-comments.html" title="0 comments awaiting moderation"><span class="ab-icon"></span><span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-0">0</span></a>		</li>
+		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item"  aria-haspopup="true" href="post-new.html"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+		<li id="wp-admin-bar-new-post"><a class="ab-item"  href="post-new.html">Post</a>		</li>
+		<li id="wp-admin-bar-new-media"><a class="ab-item"  href="media-new.html">Media</a>		</li>
+		<li id="wp-admin-bar-new-page"><a class="ab-item"  href="post-new3659.html?post_type=page">Page</a>		</li>
+		<li id="wp-admin-bar-new-pump_pack"><a class="ab-item"  href="post-new7e58.html?post_type=pump_pack">Pack</a>		</li>
+		<li id="wp-admin-bar-new-question"><a class="ab-item"  href="post-newe28a.html?post_type=question">Question</a>		</li>
+		<li id="wp-admin-bar-new-answer"><a class="ab-item"  href="post-new3a95.html?post_type=answer">Answer</a>		</li>
+		<li id="wp-admin-bar-new-report"><a class="ab-item"  href="post-new0c2e.html?post_type=report">Report</a>		</li>
+		<li id="wp-admin-bar-new-poll"><a class="ab-item"  href="post-new2694.html?post_type=poll">Poll Question</a>		</li>
+		<li id="wp-admin-bar-new-poll_answer"><a class="ab-item"  href="post-new967b.html?post_type=poll_answer">Poll Answer</a>		</li>
+		<li id="wp-admin-bar-new-user"><a class="ab-item"  href="user-new.html">User</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-ae_menu" class="menupop"><div class="ab-item ab-empty-item"  aria-haspopup="true">Site Dashboard</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-ae_menu-default" class="ab-submenu">
+		<li id="wp-admin-bar-et-overview"><a class="ab-item"  href="adminc7e6.html?page=et-overview">Overview</a>		</li>
+		<li id="wp-admin-bar-et-settings"><a class="ab-item"  href="admin6d2f.html?page=et-settings">Settings</a>		</li>
+		<li id="wp-admin-bar-et-users"><a class="ab-item"  href="adminaab9.html?page=et-users">Members</a>		</li>
+		<li id="wp-admin-bar-et-badge"><a class="ab-item"  href="admine3cb.html?page=et-badge">User Badges</a>		</li>
+		<li id="wp-admin-bar-et-payments"><a class="ab-item"  href="admin9ddc.html?page=et-payments">Payments</a>		</li>
+		<li id="wp-admin-bar-et-pump"><a class="ab-item"  href="admin6c23.html?page=et-pump">Pump Question</a>		</li>
+		<li id="wp-admin-bar-et-poll"><a class="ab-item"  href="adminc9e9.html?page=et-poll">Poll</a>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item"  aria-haspopup="true" href="../wp-login94d6.html">Howdy, Engine Admin Demo<img alt='' src='http://1.gravatar.com/avatar/3743112a070d24fe4dbd5cb39d6a5e9e?s=26&amp;d=mm&amp;r=G' class='avatar avatar-26 photo avatar-default' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+		<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="../wp-login94d6.html"><img alt='' src='http://1.gravatar.com/avatar/3743112a070d24fe4dbd5cb39d6a5e9e?s=64&amp;d=mm&amp;r=G' class='avatar avatar-64 photo avatar-default' height='64' width='64' /><span class='display-name'>Engine Admin Demo</span><span class='username'>admindemo</span></a>		</li>
+		<li id="wp-admin-bar-edit-profile"><a class="ab-item"  href="../wp-login94d6.html">Edit My Profile</a>		</li>
+		<li id="wp-admin-bar-logout"><a class="ab-item"  href="../wp-login4155.html?action=logout&amp;_wpnonce=6ea4c64380">Log Out</a>		</li></ul></div>		</li></ul>			</div>
+						<a class="screen-reader-shortcut" href="../wp-login4155.html?action=logout&amp;_wpnonce=6ea4c64380">Log Out</a>
+					</div>
+
+		
+<div id="wpbody" role="main">
+
+<div id="wpbody-content" aria-label="Main content" tabindex="0">
+		<div id="screen-meta" class="metabox-prefs">
+
+			<div id="contextual-help-wrap" class="hidden no-sidebar" tabindex="-1" aria-label="Contextual Help Tab">
+				<div id="contextual-help-back"></div>
+				<div id="contextual-help-columns">
+					<div class="contextual-help-tabs">
+						<ul>
+												</ul>
+					</div>
+
+					
+					<div class="contextual-help-tabs-wrap">
+											</div>
+				</div>
+			</div>
+				</div>
+		        <!-- ================================ -->
+        <!-- Admin Frame                      -->
+        <!-- ================================ -->
+        <div class="wrap">
+            <div class="et-body">
+                <div class="et-header">
+                    <div class="logo">
+                        <a href="http://www.enginethemes.com/"> Powered by <img src="../wp-content/themes/qaengine/includes/aecore/assets/img/engine-logo.png" /> </a>
+                    </div>
+                    <div class="slogan"><span>Administration</span>. You are an admin. Here you administrate.</div>
+                </div>
+                <div class="et-wrapper clearfix">
+                    <div class="et-left-column">
+                            <ul class="et-menu-items font-quicksand"><li>
+                            <a class="engine-menu " href="adminc7e6.html?page=et-overview">
+                                <div data-icon="L" class="icon engine-menu-icon icon-L"></div>
+                                <div class="">OVERVIEW</div>
+                            </a>
+                        </li><li>
+                            <a class="engine-menu active" href="admin6d2f.html?page=et-settings">
+                                <div data-icon="y" class="icon engine-menu-icon icon-y"></div>
+                                <div class="">SETTINGS</div>
+                            </a>
+                        </li><li>
+                            <a class="engine-menu " href="adminaab9.html?page=et-users">
+                                <div data-icon="g" class="icon engine-menu-icon icon-g"></div>
+                                <div class="">MEMBERS</div>
+                            </a>
+                        </li><li>
+                            <a class="engine-menu " href="admine3cb.html?page=et-badge">
+                                <div data-icon="U" class="icon engine-menu-icon icon-U"></div>
+                                <div class="">USER BADGES</div>
+                            </a>
+                        </li><li>
+                            <a class="engine-menu " href="admin9ddc.html?page=et-payments">
+                                <div data-icon="%" class="icon engine-menu-icon icon-%"></div>
+                                <div class="">PAYMENTS</div>
+                            </a>
+                        </li><li>
+                            <a class="engine-menu " href="admin6c23.html?page=et-pump">
+                                <div data-icon="{" class="icon engine-menu-icon icon-{"></div>
+                                <div class="">PUMP QUESTION</div>
+                            </a>
+                        </li><li>
+                            <a class="engine-menu " href="adminc9e9.html?page=et-poll">
+                                <div data-icon="2" class="icon engine-menu-icon icon-2"></div>
+                                <div class="">POLL</div>
+                            </a>
+                        </li></ul>                    </div>
+                    <div id="engine_setting_content" class="et-main-column clearfix">
+                                <div class="et-main-header">
+            <div class="title font-quicksand">SETTINGS</div>
+                            <div class="desc">Manage how your Q&A Engine looks and feels</div>
+                    </div>
+    <div class="et-main-content " id="settings" ><div class="et-main-left"><ul class="et-menu-content inner-menu"><li>
+                <a href="#section/general-settings" menu-data="" class="active section-link">
+                    <span class="icon" data-icon="y"></span>General</a>
+            </li><li>
+                <a href="#section/social-settings" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="B"></span>Social</a>
+            </li><li>
+                <a href="#section/content-settings" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="l"></span>Content</a>
+            </li><li>
+                <a href="#section/url-slug" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="i"></span>Url slug</a>
+            </li><li>
+                <a href="#section/gg-captcha" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="3"></span>Captcha</a>
+            </li><li>
+                <a href="#section/branding-settings" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="b"></span>Branding</a>
+            </li><li>
+                <a href="#section/mail-settings" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="M"></span>Mailing</a>
+            </li><li>
+                <a href="#section/language-settings" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="G"></span>Language</a>
+            </li><li>
+                <a href="#section/update-settings" menu-data="" class=" section-link">
+                    <span class="icon" data-icon="~"></span>Update</a>
+            </li></ul></div><div class="settings-content"><div  class="et-main-main clearfix inner-content " id="general-settings" ><div class="" ><form ><div class=" title group-site-name">Website Title</div><div class="desc" ><span class="group-desc">Enter your website title.</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="blogname" name="blogname" " value="QA Engine - Enginethemes" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-site-description">Website Description</div><div class="desc" ><span class="group-desc">Enter your website description</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="blogdescription" name="blogdescription" " value="The Most Place for Questioning &amp; Answering" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-site-copyright">Copyright</div><div class="desc" ><span class="group-desc">This copyright information will appear in the footer.</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="copyright" name="copyright" " value="Enginethemes" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-site-analytics">Google Analytics Script</div><div class="desc" ><span class="group-desc">Google analytics is a service offered by Google that generates detailed statistics about the visits to a website.</span><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="opt-ace-editor-js" name="google_analytics" class="regular-text option-item bg-grey-input " ></textarea></div></div></div></form></div><div class="" ><form ><div class=" title group-user-confirm">Email Confirmation</div><div class="desc" ><span class="group-desc">Enabling this will require users to confirm their email addresses after registration.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="user_confirm" title="" class="toggle-button deactive selected">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="user_confirm" title="" class="toggle-button active ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="user_confirm" value="0" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-new_admin_email">Administrator Email</div><div class="desc" ><span class="group-desc">This email is used for admin purposes.</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="new_admin_email" name="new_admin_email" " value="" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="social-settings" ><div class="" ><form ><div class=" title group-twitter-api">Twitter API</div><div class="desc" ><span class="group-desc">Enabling this will allow users to login via Twitter.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="twitter_login" title="" class="toggle-button deactive ">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="twitter_login" title="" class="toggle-button active selected ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="twitter_login" value="1" />
+                        </div>
+                    </div>
+                </div></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="et_twitter_key" name="et_twitter_key"  placeholder="Twitter Consumer Key" " value="AWFmzIyUaeKBbdXeMuAAQ" class="regular-text " /><br /></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="et_twitter_secret" name="et_twitter_secret"  placeholder="Twitter Consumer Secret" " value="tYR54uUklmwFMgjAvXC1ClKGLTY0Z55nzr8IwSEaQ" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-facebook-api">Facebook API</div><div class="desc" ><span class="group-desc">Enabling this will allow users to login via Facebook.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="facebook_login" title="" class="toggle-button deactive ">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="facebook_login" title="" class="toggle-button active selected ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="facebook_login" value="1" />
+                        </div>
+                    </div>
+                </div></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="et_facebook_key" name="et_facebook_key"  placeholder="Facebook Application ID" " value="789782421076809" class="regular-text " /><br /></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="et_facebook_secret_key" name="et_facebook_secret_key"  placeholder="Facebook Secret Key ID" " value="416ecb6de07ada5d386be3c1fb5648c9" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-google-api">Google API</div><div class="desc" ><span class="group-desc">Enabling this will allow users to login via Google.(<a target="_blank" href="https://code.google.com/apis/console">get key</a>)</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="gplus_login" title="" class="toggle-button deactive ">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="gplus_login" title="" class="toggle-button active selected ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="gplus_login" value="1" />
+                        </div>
+                    </div>
+                </div></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="gplus_client_id" name="gplus_client_id"  placeholder="Client ID" " value="185639095186-qp1uo53pjqb428gp2drtg5o7ladkh10l.apps.googleusercontent.com" class="regular-text " /><br /></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="gplus_secret_id" name="gplus_secret_id"  placeholder="Secret ID" " value="b6JAnYXFNcfRuI8a7lP6B5kn" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-google-api">Google Plus</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="gplus_url" name="gplus_url" " value="https://plus.google.com/+EngineThemes" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-google-api">Facebook URL</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="facebook_url" name="facebook_url" " value="https://www.facebook.com/EngineThemes" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-google-api">Twitter URL</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="twitter_url" name="twitter_url" " value="https://twitter.com/enginewpthemes" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-google-api">Youtube URL</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="youtube_url" name="youtube_url" " value="" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-google-api">LinkedIn URL</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="linkedin_url" name="linkedin_url" " value="" class="regular-text " /><br /></div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="content-settings" ><div class="" ><form ><div class=" title group-filter_keywords">Filter Bad Words ( Questions / Answers )</div><div class="desc" ><span class="group-desc">Each word seperate by comma (,)</span><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="filter_keywords" name="filter_keywords" class="regular-text option-item bg-grey-input" ></textarea></div></div></div></form></div><div class="" ><form ><div class=" title group-intro-text">Intro Text</div><div class="desc" ><span class="group-desc">This text will appear in the intro page.</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="intro-heading" name="intro_slide_text" " value="Not just another &lt;span class=\&quot;adject\&quot;&gt;EngineThemes|Geek|Cool|Lazy|Nerd&lt;/span&gt; WordPress theme," class="regular-text option-item bg-grey-input " /><br /></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="text-bottom" name="intro_bottom_text" " value="QAEngine aims to take the knowledge sharing &lt;br&gt; experience to a &lt;span&gt;whole new level.&lt;/span&gt;" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-max-width-title">Maximum length of title</div><div class="desc" ><span class="group-desc">Insert the maximum length of the title</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="max_width_title" name="max_width_title" " value="150" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-upload-images">Editor Upload Images</div><div class="desc" ><span class="group-desc">Turn on / off Feature Images Upload in Editor.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="ae_upload_images" title="" class="toggle-button deactive ">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="ae_upload_images" title="" class="toggle-button active selected ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="ae_upload_images" value="1" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-login-view">Login To View Content</div><div class="desc" ><span class="group-desc">If you enable this option, users have to login to see content.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="login_view_content" title="" class="toggle-button deactive selected">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="login_view_content" title="" class="toggle-button active ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="login_view_content" value="0" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-pending-questions">Pending Questions</div><div class="desc" ><span class="group-desc">If you enable this option, the new posted questions have to be approved to be displayed.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="pending_questions" title="" class="toggle-button deactive selected">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="pending_questions" title="" class="toggle-button active ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="pending_questions" value="0" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-pending-answers">Pending Answers</div><div class="desc" ><span class="group-desc">If you enable this option, the new posted answers have to be approved to be displayed.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="pending_answers" title="" class="toggle-button deactive selected">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="pending_answers" title="" class="toggle-button active ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="pending_answers" value="0" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-following-questions">Email Notification For Followed Questions</div><div class="desc" ><span class="group-desc">If you enable this option, whenever there's a new answer for the followed questions, the system will automatically send emails to the following users.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="qa_send_following_mail" title="" class="toggle-button deactive selected">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="qa_send_following_mail" title="" class="toggle-button active ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="qa_send_following_mail" value="0" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-live-notifications">Live Notifications</div><div class="desc" ><span class="group-desc">Turn on / off live notifications feature.</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="qa_live_notifications" title="" class="toggle-button deactive selected">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="qa_live_notifications" title="" class="toggle-button active ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="qa_live_notifications" value="0" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-view-answer">Login To View Answer</div><div class="desc" ><span class="group-desc">If you enable this option, users have to login to see answer</span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="view-answer" title="" class="toggle-button deactive selected">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="view-answer" title="" class="toggle-button active ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="view-answer" value="0" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div><div class="" ><form ><div class=" title group-send-email-from">Send Email From</div><div class="desc" ><span class="group-desc">This email will appear in the email's header</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="send_mail_from" name="send_mail_from" " value="no-reply@enginethemes.com" class="regular-text " /><br /></div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="url-slug" ><div class="list-package" ><form ><div class=" title group-questions-slug">Questions</div><div class="desc" ><span class="group-desc">Enter slug for your Single Question page (this slug must be unique, please re-save the permalink options after changed slug).</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="question-slug" name="question_slug"  placeholder="Single Question page Slug" " value="question" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="list-package" ><form ><div class=" title group-questions-category-slug">Questions Category</div><div class="desc" ><span class="group-desc">Enter slug for your Question Category archive (this slug must be unique and can not be 'category', please re-save the permalink options after changed slug).</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="category-slug" name="category_slug"  placeholder="Questions Category Slug" " value="question-category" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="list-package" ><form ><div class=" title group-questions-tag-slug">Questions Tag</div><div class="desc" ><span class="group-desc">Enter slug for your Question Tag archive (this slug must be unique, please re-save the permalink options after changed slug).</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="tag-slug" name="tag_slug"  placeholder="Questions Tag Slug" " value="qa-tag" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div><div class="list-package" ><form ><div class=" title group-members-slug">Members</div><div class="desc" ><span class="group-desc">Enter slug for your Question Tag archive (this slug must be unique, please re-save the permalink options after changed slug).</span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="members-slug" name="members_slug"  placeholder="Members Slug Page" " value="member" class="regular-text option-item bg-grey-input " /><br /></div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="gg-captcha" ><div class="" ><form ><div class=" title group-google-recaptcha">Google reCaptcha</div><div class="desc" ><span class="group-desc">Enabling this will prevent spammers to register.<a href='https://www.google.com/recaptcha/admin#list' target='_blank' rel='nofollow'>get key</a></span><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="gg_captcha" title="" class="toggle-button deactive ">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="gg_captcha" title="" class="toggle-button active selected ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="gg_captcha" value="1" />
+                        </div>
+                    </div>
+                </div></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="gg_site_key" name="gg_site_key"  placeholder="reCaptcha Site Key" " value="6LeS8wYTAAAAAKL7TOlfNCX7RMB9SiUDSZdKI606" class="regular-text " /><br /></div></div><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="gg_secret_key" name="gg_secret_key"  placeholder="reCaptcha Secret Key" " value="6LeS8wYTAAAAADD9bLBrPFTsG73lz2S9lUE8mnC7" class="regular-text " /><br /></div></div></div></form></div><div class="" ><form ><div class=" title group-google-recaptcha">Google reCaptcha for Questions</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><div class="inner no-border btn-left">
+                    <div class="payment"> 
+                        <div class="button-enable font-quicksand switch">
+                            <a href="#" rel="gg_question_captcha" title="" class="toggle-button deactive ">
+                                <span>Disable</span>
+                            </a>
+                            <a href="#" rel="gg_question_captcha" title="" class="toggle-button active selected ">
+                                <span>Enable</span>
+                            </a>
+                            <input type="hidden" name="gg_question_captcha" value="1" />
+                        </div>
+                    </div>
+                </div></div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="branding-settings" ><div class="" ><form data-name=""><div class=" title group-site-logo">Site logo</div><div class="desc" ><span class="group-desc">Your logo should be in PNG, GIF or JPG format, within 150x50px and less than 1500Kb.</span><div class="form no-margin no-padding no-background"><div class="form-item">        <div class="customization-info" id="site_logo ">
+            <div class="input-file upload-logo" id="site_logo_container" data-id="site_logo" data-w="150" data-h="50" >
+                <div class="left clearfix">
+                    <div class="image" id="site_logo_thumbnail" style="width:150px; height:50px; text-align:center; ">
+                        <img style="max-height: 50px;" src="#" />
+                    </div>
+                </div>
+
+                <span class="et_ajaxnonce" id="a71bb901e7"></span>
+                <span class="bg-grey-button button btn-button" id="site_logo_browse_button" style="height:50px;margin-top:10px;">
+                    Browse                    <span class="icon" data-icon="o"></span>
+                </span>
+                    <span class="bg-grey-button button btn-button btn-remove-option-image" id="site_logo_remove_button" style="height:50px;margin-top:10px; margin-left:10px; display:none" data-id="1960" data-name="site_logo">
+                        Remove                        <span class="icon" data-icon="#"></span>
+                    </span>
+            </div>
+        </div>
+        <div style="clear:left"></div>
+    </div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-mobile-icon">Mobile Icon</div><div class="desc" ><span class="group-desc">This icon will be used as a launcher icon for iPhone and Android smartphones and also as the website favicon. The image dimensions should be 57x57px.</span><div class="form no-margin no-padding no-background"><div class="form-item">        <div class="customization-info" id="mobile_icon ">
+            <div class="input-file upload-logo" id="mobile_icon_container" data-id="mobile_icon" data-w="57" data-h="57" >
+                <div class="left clearfix">
+                    <div class="image" id="mobile_icon_thumbnail" style="width:57px; height:57px; text-align:center; ">
+                        <img style="max-height: 57px;" src="#" />
+                    </div>
+                </div>
+
+                <span class="et_ajaxnonce" id="9a10e47e54"></span>
+                <span class="bg-grey-button button btn-button" id="mobile_icon_browse_button" style="height:50px;margin-top:10px;">
+                    Browse                    <span class="icon" data-icon="o"></span>
+                </span>
+                    <span class="bg-grey-button button btn-button btn-remove-option-image" id="mobile_icon_remove_button" style="height:50px;margin-top:10px; margin-left:10px; display:none" data-id="" data-name="mobile_icon">
+                        Remove                        <span class="icon" data-icon="#"></span>
+                    </span>
+            </div>
+        </div>
+        <div style="clear:left"></div>
+    </div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-intro-background">Intro Page Background</div><div class="desc" ><span class="group-desc">This image will be used as a background image in Intro Page. The image dimensions should be 1400x700px or more and size less than 1000KB.</span><div class="form no-margin no-padding no-background"><div class="form-item">        <div class="customization-info" id="intro_background ">
+            <div class="input-file upload-logo" id="intro_background_container" data-id="intro_background" data-w="140" data-h="70" >
+                <div class="left clearfix">
+                    <div class="image" id="intro_background_thumbnail" style="width:140px; height:70px; text-align:center; ">
+                        <img style="max-height: 70px;" src="#" />
+                    </div>
+                </div>
+
+                <span class="et_ajaxnonce" id="21e5b30518"></span>
+                <span class="bg-grey-button button btn-button" id="intro_background_browse_button" style="height:50px;margin-top:10px;">
+                    Browse                    <span class="icon" data-icon="o"></span>
+                </span>
+                    <span class="bg-grey-button button btn-button btn-remove-option-image" id="intro_background_remove_button" style="height:50px;margin-top:10px; margin-left:10px; display:none" data-id="" data-name="intro_background">
+                        Remove                        <span class="icon" data-icon="#"></span>
+                    </span>
+            </div>
+        </div>
+        <div style="clear:left"></div>
+    </div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="mail-settings" ><div class="" ><form data-name=""><div class=" title group-mail-description-group">Authentication Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><div class="field-desc desc ">Email templates for authentication process. You can use placeholders to include some specific content.<a class="icon btn-template-help payment" data-icon="?" href="javascript:void(0)" title="View more details"></a><div class="cont-template-help payment-setting">
+                            [user_login],[display_name],[user_email] : user's details you want to send mail<br />
+                            [dashboard] : member dashboard url <br />
+                            [title], [link], [excerpt],[desc] : question title, link and details <br />
+                            [activate_url] : activate link is require for user to renew their pass <br />
+                            [site_url],[blogname],[admin_email] :  site info, admin email
+                            </div></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-register-mail">Register Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="register_mail_template" name="register_mail_template"  class="regular-editor editor " >&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;Hello [display_name],&lt;/p&gt;
+&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;You have successfully registered an account with  [blogname]. Here is your account information:&lt;/p&gt;
+&lt;ol style=\&quot;margin: 0.5em 0px 1.5em 0.5em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;
+&lt;li&gt;Username: [user_login]&lt;/li&gt;
+&lt;li&gt;Email: [user_email]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;Thank you and welcome to [blogname].&lt;/p&gt;</textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-confirm-mail">Confirmation Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="confirm_mail_template" name="confirm_mail_template"  class="regular-editor editor " >&lt;p&gt;Hello [display_name],&lt;/p&gt;
+&lt;p&gt;You have successfully registered an account with   [blogname]. Here is your account information:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Username: [user_login]&lt;/li&gt;
+&lt;li&gt;Email: [user_email]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Please click the link below to confirm your email address.&lt;/p&gt;
+&lt;p&gt;[confirm_link]&lt;/p&gt;
+&lt;p&gt;Thank you and welcome to [blogname].&lt;/p&gt;</textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-confirmed-mail">Confirmed Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="confirmed_mail_template" name="confirmed_mail_template"  class="regular-editor editor " >&lt;p&gt;Hi [display_name],&lt;/p&gt;
+&lt;p&gt;Your email address has been successfully confirmed.&lt;/p&gt;
+&lt;p&gt;Thank you and welcome to [blogname].&lt;/p&gt;</textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-forgotpass-mail">Forgotpass Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="forgotpass_mail_template" name="forgotpass_mail_template"  class="regular-editor editor " >&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;Hello [display_name],&lt;/p&gt;
+&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;You have just sent a request to recover the password associated with your account in [blogname]. If you did not make this request, please ignore this email; otherwise, click the link below to create your new password:&lt;/p&gt;
+&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;[activate_url]&lt;/p&gt;
+&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;Regards,&lt;br /&gt;[blogname]&lt;/p&gt;</textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-resetpass-mail">Resetpass Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="resetpass_mail_template" name="resetpass_mail_template"  class="regular-editor editor " >&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;Hello [display_name],&lt;/p&gt;
+&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;You have successfully changed your password. Click this link [site_url] to login to your [blogname]\&#039;s account.&lt;/p&gt;
+&lt;p style=\&quot;margin: 0px 0px 1em; color: #000000; font-family: Helvetica, Arial, sans-serif; font-size: 14px; line-height: 22.399999618530273px; text-align: justify;\&quot;&gt;Sincerely,&lt;br /&gt;[blogname]&lt;/p&gt;</textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-pending-questions-mail">Pending Questions Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="pending_question_mail_template" name="pending_question_mail_template"  class="regular-editor editor " >&lt;p&gt;Hello Admin,&lt;/p&gt;
+&lt;p&gt;The new pending question &lt;strong&gt;[question_title]&lt;/strong&gt; is waiting for your approval.&lt;/p&gt;
+&lt;p&gt;Without your acceptance, it won’t be displayed in the site. Please check out the following link to approve the question.&lt;/p&gt;
+&lt;p&gt;[pending_question_link]&lt;/p&gt;
+&lt;p&gt;Sincerely,&lt;br /&gt;[blogname]&lt;/p&gt;</textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-new-answer-mail">New Answer Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="new_answer_mail_template" name="new_answer_mail_template"  class="regular-editor editor " >&lt;p style=\&quot;font-size: 13px;\&quot;&gt;Hello [display_name],&lt;/p&gt;
+&lt;p style=\&quot;font-size: 13px;\&quot;&gt;The question &lt;strong&gt;[question_title]&lt;/strong&gt; you are following has a new answer.&lt;/p&gt;
+&lt;p style=\&quot;font-size: 13px;\&quot;&gt;Click the link below to view the question.&lt;/p&gt;
+&lt;p style=\&quot;font-size: 13px;\&quot;&gt;[question_link]&lt;/p&gt;
+&lt;p style=\&quot;font-size: 13px;\&quot;&gt;Sincerely,&lt;br /&gt;[blogname]&lt;/p&gt;</textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-report-mail">Report Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="report_mail_template" name="report_mail_template"  class="regular-editor editor " ></textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-best-answer-mail">Best Answer Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="accept_answer_mail_template" name="accept_answer_mail_template"  class="regular-editor editor " ></textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-ban-mail">Ban User Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="ban_mail_template" name="ban_mail_template"  class="regular-editor editor " ></textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-inbox-mail">Inbox Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="inbox_mail_template" name="inbox_mail_template"  class="regular-editor editor " ></textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-new-badges-mail">New Badges Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="new_badges_mail_template" name="new_badges_mail_template"  class="regular-editor editor " ></textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div><div class="" ><form data-name=""><div class=" title group-down-badges-mail">Down Badges Mail Template</div><div class="desc" ><div class="form no-margin no-padding no-background"><div class="form-item"><textarea id="down_badges_mail_template" name="down_badges_mail_template"  class="regular-editor editor " ></textarea><div style="margin-top: 10px;" class="mail-control-btn"><a href="#" class="reset-default">Reset to default</a></div></div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="language-settings" ><div class="" ><form data-name=""><div class=" title group-website-language">Website Language</div><div class="desc" ><span class="group-desc">Select the language you want to use for your website.</span><div class="form no-margin no-padding no-background"><div class="form-item">		<ul class="list-language">
+    	        	<li>
+        		<a class="" title="Arabic" href="#et-change-language" rel="Arabic">Arabic </a>
+        	</li>
+                	<li>
+        		<a class="active" title="Bengali" href="#et-change-language" rel="Bengali">Bengali </a>
+        	</li>
+                	<li>
+        		<a class="" title="Cesky" href="#et-change-language" rel="Cesky">Cesky </a>
+        	</li>
+                	<li>
+        		<a class="" title="Chinese" href="#et-change-language" rel="Chinese">Chinese </a>
+        	</li>
+                	<li>
+        		<a class="" title="English" href="#et-change-language" rel="English">English </a>
+        	</li>
+                	<li>
+        		<a class="" title="PL_pl" href="#et-change-language" rel="PL_pl">PL_pl </a>
+        	</li>
+                	<li>
+        		<a class="" title="Polish" href="#et-change-language" rel="Polish">Polish </a>
+        	</li>
+                	<li>
+        		<a class="" title="Portuguese" href="#et-change-language" rel="Portuguese">Portuguese </a>
+        	</li>
+                	<li>
+        		<a class="" title="Poski" href="#et-change-language" rel="Poski">Poski </a>
+        	</li>
+                	<li>
+        		<a class="" title="Russian" href="#et-change-language" rel="Russian">Russian </a>
+        	</li>
+                	<li>
+        		<a class="" title="Thai" href="#et-change-language" rel="Thai">Thai </a>
+        	</li>
+                	<li>
+        		<a class="" title="Thai2" href="#et-change-language" rel="Thai2">Thai2 </a>
+        	</li>
+                	<li>
+        		<a class="" title="VIET" href="#et-change-language" rel="VIET">VIET </a>
+        	</li>
+                	<li>
+        		<a class="" title="Vietnamese" href="#et-change-language" rel="Vietnamese">Vietnamese </a>
+        	</li>
+                	<li>
+        		<a class="" title="changes" href="#et-change-language" rel="changes">changes </a>
+        	</li>
+                	<li>
+        		<a class="" title="chinese" href="#et-change-language" rel="chinese">chinese </a>
+        	</li>
+                	<li>
+        		<a class="" title="de" href="#et-change-language" rel="de">de </a>
+        	</li>
+                	<li>
+        		<a class="" title="dodododo" href="#et-change-language" rel="dodododo">dodododo </a>
+        	</li>
+                	<li>
+        		<a class="" title="engine" href="#et-change-language" rel="engine">engine </a>
+        	</li>
+                	<li>
+        		<a class="" title="español" href="#et-change-language" rel="español">español </a>
+        	</li>
+                	<li>
+        		<a class="" title="france" href="#et-change-language" rel="france">france </a>
+        	</li>
+                	<li>
+        		<a class="" title="gujarati" href="#et-change-language" rel="gujarati">gujarati </a>
+        	</li>
+                	<li>
+        		<a class="" title="hindi" href="#et-change-language" rel="hindi">hindi </a>
+        	</li>
+                	<li>
+        		<a class="" title="hungarian" href="#et-change-language" rel="hungarian">hungarian </a>
+        	</li>
+                	<li>
+        		<a class="" title="indonesian" href="#et-change-language" rel="indonesian">indonesian </a>
+        	</li>
+                	<li>
+        		<a class="" title="khbkjb" href="#et-change-language" rel="khbkjb">khbkjb </a>
+        	</li>
+                	<li>
+        		<a class="" title="kr" href="#et-change-language" rel="kr">kr </a>
+        	</li>
+                	<li>
+        		<a class="" title="kurdish" href="#et-change-language" rel="kurdish">kurdish </a>
+        	</li>
+                	<li>
+        		<a class="" title="persian" href="#et-change-language" rel="persian">persian </a>
+        	</li>
+                	<li>
+        		<a class="" title="ro" href="#et-change-language" rel="ro">ro </a>
+        	</li>
+                	<li>
+        		<a class="" title="romanian" href="#et-change-language" rel="romanian">romanian </a>
+        	</li>
+                	<li>
+        		<a class="" title="russian" href="#et-change-language" rel="russian">russian </a>
+        	</li>
+                	<li>
+        		<a class="" title="serbian" href="#et-change-language" rel="serbian">serbian </a>
+        	</li>
+                	<li>
+        		<a class="" title="spanish" href="#et-change-language" rel="spanish">spanish </a>
+        	</li>
+                	<li>
+        		<a class="" title="spanish_Hernan_Garcia" href="#et-change-language" rel="spanish_Hernan_Garcia">spanish_Hernan_Garcia </a>
+        	</li>
+                	<li>
+        		<a class="" title="srpski" href="#et-change-language" rel="srpski">srpski </a>
+        	</li>
+                	<li>
+        		<a class="" title="tamil" href="#et-change-language" rel="tamil">tamil </a>
+        	</li>
+                	<li>
+        		<a class="" title="test" href="#et-change-language" rel="test">test </a>
+        	</li>
+                	<li>
+        		<a class="" title="tur,ish" href="#et-change-language" rel="tur,ish">tur,ish </a>
+        	</li>
+                	<li>
+        		<a class="" title="turkish" href="#et-change-language" rel="turkish">turkish </a>
+        	</li>
+                	<li>
+        		<a class="" title="zh_CN" href="#et-change-language" rel="zh_CN">zh_CN </a>
+        	</li>
+                	<li>
+        		<a class="" title="zh_TW" href="#et-change-language" rel="zh_TW">zh_TW </a>
+        	</li>
+                	<li>
+        		<a class="" title="sw_KE" href="#et-change-language" rel="sw_KE">sw_KE </a>
+        	</li>
+                	<li class="new-language">
+        		<button class="add-lang">Add a new language<span class="icon" data-icon="+"></span></button>
+        		<div class="lang-field-wrap">
+        			<input id="" type="text" placeholder="Enter language name" name="lang_name" class="input-new-lang">
+        		</div>
+        	</li>
+        </ul>
+
+		<div class="no-padding">	        				
+			<div class="show-new-language">
+				<div class="item form no-background no-padding no-margin">
+					<div class="form-item form-item-short">
+						<!-- <div class="label">Language name:</div> -->
+						<input id="new-language-name" class="bg-grey-input" type="text" placeholder="Enter the language's name" />
+						<button id="add-new-language" >Add language<span class="icon" data-icon="+"></span></button>
+						<a class="cancel" id="cancel-add-lang">Cancel</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+    </div></div></div></form></div><div class="" ><form data-name="translator"><div class=" title group-translator">Translator</div><div class="desc" ><span class="group-desc">Translate a language</span><div class="form no-margin no-padding no-background"><div class="form-item">    	
+		<div class="f-left-all width100p clearfix">
+			<div class="" >
+				<select id="base-language">
+					<option class="empty" value="">Choose a Language</option>
+											<option value="Arabic">Arabic</option>
+											<option value="Bengali">Bengali</option>
+											<option value="Cesky">Cesky</option>
+											<option value="Chinese">Chinese</option>
+											<option value="English">English</option>
+											<option value="PL_pl">PL_pl</option>
+											<option value="Polish">Polish</option>
+											<option value="Portuguese">Portuguese</option>
+											<option value="Poski">Poski</option>
+											<option value="Russian">Russian</option>
+											<option value="Thai">Thai</option>
+											<option value="Thai2">Thai2</option>
+											<option value="VIET">VIET</option>
+											<option value="Vietnamese">Vietnamese</option>
+											<option value="changes">changes</option>
+											<option value="chinese">chinese</option>
+											<option value="de">de</option>
+											<option value="dodododo">dodododo</option>
+											<option value="engine">engine</option>
+											<option value="español">español</option>
+											<option value="france">france</option>
+											<option value="gujarati">gujarati</option>
+											<option value="hindi">hindi</option>
+											<option value="hungarian">hungarian</option>
+											<option value="indonesian">indonesian</option>
+											<option value="khbkjb">khbkjb</option>
+											<option value="kr">kr</option>
+											<option value="kurdish">kurdish</option>
+											<option value="persian">persian</option>
+											<option value="ro">ro</option>
+											<option value="romanian">romanian</option>
+											<option value="russian">russian</option>
+											<option value="serbian">serbian</option>
+											<option value="spanish">spanish</option>
+											<option value="spanish_Hernan_Garcia">spanish_Hernan_Garcia</option>
+											<option value="srpski">srpski</option>
+											<option value="tamil">tamil</option>
+											<option value="test">test</option>
+											<option value="tur,ish">tur,ish</option>
+											<option value="turkish">turkish</option>
+											<option value="zh_CN">zh_CN</option>
+											<option value="zh_TW">zh_TW</option>
+											<option value="sw_KE">sw_KE</option>
+									</select>		
+			</div>
+
+			<div class="btn-language">
+				<button id="save-language">Save <span class="icon" data-icon="~"></span></button>
+			</div>
+		</div>
+        <p>
+            You should save your translation after every 20 strings to make sure they won't lost         </p>
+		<div id="translate-form" style="height: 600px;overflow-y: scroll;margin-top: 30px;" >		        			
+
+		</div>
+		<div id="pager"></div>
+				
+    </div></div></div></form></div></div><div style="display:none" class="et-main-main clearfix inner-content " id="update-settings" ><div class="" ><form ><div class=" title group-license-key">License Key</div><div class="desc" ><span class="group-desc"></span><div class="form no-margin no-padding no-background"><div class="form-item"><input type="text" id="et_license_key" name="et_license_key" " value="" class="regular-text " /><br /></div></div></div></form></div></div></div></div><div class="hidden"><div id="wp-div_load_tiny-wrap" class="wp-core-ui wp-editor-wrap html-active"><link rel='stylesheet' id='editor-buttons-css'  href='../wp-includes/css/editor.minc1f9.css?ver=4.4.2' type='text/css' media='all' />
+<div id="wp-div_load_tiny-editor-container" class="wp-editor-container"><textarea class="wp-editor-area" rows="20" cols="40" name="div_load_tiny" id="div_load_tiny">div_load_tiny</textarea></div>
+</div>
+
+</div>                    </div>
+                </div>
+
+
+                <div class="et-footer"></div>
+                <!--
+                <div class="et-footer">
+                    If you have any troubles you can <a  href="#">watch a video about this page <span class="icon" data-icon="V"></span></a>or  <a href="#">send us a message <span class="icon" data-icon="M"></span></a>.
+                </div>
+                -->
+            </div>
+        </div><!-- wrap -->
+
+        
+<div class="clear"></div></div><!-- wpbody-content -->
+<div class="clear"></div></div><!-- wpbody -->
+<div class="clear"></div></div><!-- wpcontent -->
+
+<div id="wpfooter" role="contentinfo">
+		<p id="footer-left" class="alignleft">
+		<span id="footer-thankyou">Thank you for creating with <a href="https://wordpress.org/">WordPress</a>.</span>	</p>
+	<p id="footer-upgrade" class="alignright">
+		Version 4.4.2	</p>
+	<div class="clear"></div>
+</div>
+	<div id="wp-auth-check-wrap" class="hidden">
+	<div id="wp-auth-check-bg"></div>
+	<div id="wp-auth-check">
+	<div class="wp-auth-check-close" tabindex="0" title="Close"></div>
+			<div id="wp-auth-check-form" data-src="../wp-logine169.html?interim-login=1"></div>
+			<div class="wp-auth-fallback">
+		<p><b class="wp-auth-fallback-expired" tabindex="0">Session expired</b></p>
+		<p><a href="index-2.html" target="_blank">Please log in again.</a>
+		The login page will open in a new window. After logging in you can close it and return to this page.</p>
+	</div>
+	</div>
+	</div>
+	<script type='text/javascript'>
+/* <![CDATA[ */
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","ae_is_mobile":"0","plupload_config":{"max_file_size":"3mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap"},"homeURL":"http:\/\/www.enginethemes.com\/demo\/qaengine","is_submit_post":"","is_submit_project":"","is_single":"","max_images":"5","user_confirm":"0","max_cat":"3","confirm_message":"Are you sure to archive this?","map_zoom":"8","map_center":{"latitude":10,"longitude":106},"fitbounds":"","limit_free_msg":"You have reached the maximum number of Free posts. Please select another plan.","error":"Please fill all require fields.","geolocation":"0","date_format":"F j, Y","time_format":"g:i a","dates":{"days":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"daysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"daysMin":["Su","Mo","Tu","We","Th","Fr","Sa","Su"],"months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},"global_map_style":null,"posts_per_page":"12","pending_questions":"0","pending_answers":"0","introURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/intro-2\/","buy_pump_link":"http:\/\/www.enginethemes.com\/demo\/qaengine\/buy-package\/","gplus_client_id":"185639095186-qp1uo53pjqb428gp2drtg5o7ladkh10l.apps.googleusercontent.com","max_width_title":"150","user_id":"11","upload_images":"1"};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+var ae_globals = {"ajaxURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","imgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/","jsURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/","themeImgURL":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/","loadingImg":"<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">","loading":"Loading","texts":{"limit_category_level":"Categories' level is limited to 3"},"ae_is_mobile":"0","plupload_config":{"max_file_size":"1.46484375mb","url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php","flash_swf_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf","silverlight_xap_url":"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap","filters":[{"title":"Image Files","extensions":"jpg,jpeg,gif,png"}]}};
+/* ]]> */
+</script>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var commonL10n = {"warnDelete":"You are about to permanently delete these items.\n  'Cancel' to stop, 'OK' to delete.","dismiss":"Dismiss this notice."};var heartbeatSettings = {"nonce":"ba6bf5749e"};var authcheckL10n = {"beforeunload":"Your session has expired. You can log in again from this page or go to the login page.","interval":"180"};/* ]]> */
+</script>
+<script type='text/javascript' src='load-scriptsb181.php?c=0&amp;load%5B%5D=hoverIntent,common,admin-bar,svg-painter,heartbeat,wp-auth-check,plupload,jquery-ui-core,jquery-ui-widget,jquery-ui-mouse,jquery&amp;load%5B%5D=-ui-sortable,underscore,backbone&amp;ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/jquery.nestedSortablec1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/jquery.validate.minc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/colorpickerc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/marionette68b3.js?ver=1'></script>
+<script type='text/javascript' src='http://maps.googleapis.com/maps/api/js?sensor=false&amp;signed_in=false&amp;ver=1'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/gmapc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/appengine68b3.js?ver=1'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/user-listc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/payment-listc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/option-viewc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/language-viewc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/pack-viewc1f9.js?ver=4.4.2'></script>
+<script type='text/javascript' src='../wp-content/themes/qaengine/includes/aecore/assets/js/backendc1f9.js?ver=4.4.2'></script>
+
+		<script type="text/javascript">
+		tinyMCEPreInit = {
+			baseURL: "",
+			suffix: ".min",
+						mceInit: {},
+			qtInit: {},
+			ref: {plugins:"",theme:"modern",language:""},
+			load_ext: function(url,lang){var sl=tinymce.ScriptLoader;sl.markDone(url+'/langs/'+lang+'.js');sl.markDone(url+'/langs/'+lang+'_dlg.js');}
+		};
+		</script>
+				<script type="text/javascript">
+		
+		( function() {
+			var init, id, $wrap;
+
+			if ( typeof tinymce !== 'undefined' ) {
+				for ( id in tinyMCEPreInit.mceInit ) {
+					init = tinyMCEPreInit.mceInit[id];
+					$wrap = tinymce.$( '#wp-' + id + '-wrap' );
+
+					if ( ( $wrap.hasClass( 'tmce-active' ) || ! tinyMCEPreInit.qtInit.hasOwnProperty( id ) ) && ! init.wp_skip_init ) {
+						tinymce.init( init );
+
+						if ( ! window.wpActiveEditor ) {
+							window.wpActiveEditor = id;
+						}
+					}
+				}
+			}
+
+			if ( typeof quicktags !== 'undefined' ) {
+				for ( id in tinyMCEPreInit.qtInit ) {
+					quicktags( tinyMCEPreInit.qtInit[id] );
+
+					if ( ! window.wpActiveEditor ) {
+						window.wpActiveEditor = id;
+					}
+				}
+			}
+		}());
+		</script>
+		        <!-- localize validator -->
+        <script type="text/javascript">
+            (function ($) {
+                if(typeof $.validator !== 'undefined' ) {
+                    $.extend($.validator.messages, {
+                        required: "This field is required.",
+                        email: "Please enter a valid email address.",
+                        url: "Please enter a valid URL.",
+                        number: "Please enter a valid number.",
+                        digits: "Please enter only digits.",
+                        equalTo: "Please enter the same value again.",
+                        date: "Please enter a valid date.",
+                        creditcard: "Please enter a valid credit card number.",
+                        accept: "Please enter a value with a valid extension.",
+
+                        maxlength: $.validator.format("Please enter no more than {0} characters."),
+                        minlength: $.validator.format("Please enter at least {0} characters."),
+                        rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
+                        range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+                        min : $.validator.format("Please enter a value greater than or equal to {0}."),
+                        max : $.validator.format("Please enter a value less than or equal to {0}.")
+                    });
+                }
+
+
+            })(jQuery);
+        </script>
+
+            <!-- override underscore template settings -->
+        <script type="text/javascript">
+            _.templateSettings = {
+                evaluate: /\<\#(.+?)\#\>/g,
+                interpolate: /\{\{=(.+?)\}\}/g,
+                escape: /\{\{-(.+?)\}\}/g
+            };
+        </script>
+        <!-- localize validator -->
+    
+<div class="clear"></div></div><!-- wpwrap -->
+<script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
+</body>
+
+<!-- Mirrored from www.enginethemes.com/demo/qaengine/wp-admin/admin.php?page=et-settings by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Feb 2016 15:18:47 GMT -->
+</html>

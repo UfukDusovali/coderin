@@ -1,0 +1,197 @@
+﻿@model Coderin.Entity.User
+@using Coderin.BLL;
+
+@{
+    ViewBag.Title = "Bildirimlerim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    AnswerRepository answerRepository = new AnswerRepository();
+    QuestionRepository questionRepository = new QuestionRepository();
+    UserRepository userRepository = new UserRepository();
+    UserDetailRepository userDetailRepository = new UserDetailRepository();
+    CityRepository cityRepository = new CityRepository();
+    FollowRepository followRepository = new FollowRepository();
+    FollowQuestionRepository followQuestionRepository = new FollowQuestionRepository();
+    UserBehaviourRepository userBehaviourRepository = new UserBehaviourRepository();
+}
+<div itemscope="" itemtype="http://schema.org/Person" class="col-md-8 main-content">
+    <div class="row user-statistic highlight">
+        <div class="col-md-5 col-xs-12 user-info">
+            <span class="avatar-80">
+                <img itemprop="image" src="@*@userDetailRepository.Get(userRepository.Get(id).Id).Avatar*@ http://static.enginethemes.com/demo/qaengine/2016/01/128.jpg" class="avatar" alt="">
+            </span>
+            <ul>
+                <li class="location">
+                    <i class="fa fa-map-marker"></i>
+                    <span itemprop="homeLocation" itemscope="" itemtype="http://schema.org/PostalAddress">
+                        <span itemprop="addressLocality">@Model.UserDetail.City.Name</span>
+                    </span>
+                </li>
+                <li itemprop="email" class="email">
+                    <i class="fa fa-envelope"></i>
+                    @Model.Mail
+                </li>
+                <li itemprop="address" class="name">
+                    <i></i>
+                    @Model.Name @Model.Surname
+                </li>
+                @if (Session["UserId"] != null)
+                {
+                    if (Session["UserId"].ToString() != Model.Id.ToString())
+                    {
+                        if (followRepository.GetBy(x => x.FollowerId == (Guid)Session["UserId"] && x.FollowingId == Model.Id).Count() == 0)
+                        {
+                            <li itemprop="color" class="name">
+                                @using (Html.BeginForm("Add", "Follow", new { id = @Model.Id }, FormMethod.Post))
+                                {
+                                    <input type="submit" name="button" class="btn-social" value="Takip Et" />
+                                }
+                            </li>
+                        }
+                        else
+                        {
+                            <li itemprop="color" class="name">
+                                @using (Html.BeginForm("Remove", "Follow", new { id = @Model.Id }, FormMethod.Post))
+                                {
+                                    <input type="submit" name="button" class="btn-social" value="Takibi Kaldır" />
+                                }
+                            </li>
+                        }
+                    }
+                }
+
+            </ul>
+            <div itemprop="description" class="col-md-12 description">
+            </div>
+        </div>
+        <div class="col-md-7 col-xs-12 user-post-count">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 statistics">
+                    <div class="pull-top question-cat">
+                        <br>
+                        <span class="points-count">
+                            @followRepository.GetBy(x => x.FollowingId == @Model.Id).Count()
+                        </span>
+                        <span class="star">
+                            <a href="~/Follow/Follower/@Model.Id">Takipçi</a>
+                        </span>
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+                        <span class="points-count">
+                            @followRepository.GetBy(x => x.FollowerId == @Model.Id).Count()
+                        </span>
+                        <span class="star">
+                            <a href="~/Follow/Following/@Model.Id">Takip Edilen</a>
+                        </span>
+                    </div>
+                    <div class="pull-bottom">
+                        <div class="col-md-6 col-sm-6 col-xs-6 num-question">
+                            <p class="questions-count">
+                                Soru<br>
+
+                                <span>@questionRepository.GetBy(x => x.UserId == @Model.Id).Count()</span>
+
+
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <p class="answers-count">
+                                Cevap<br>
+                                <span>@answerRepository.GetBy(x => x.UserId == @Model.Id).Count()</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- END USER-STATISTIC -->
+
+    <div class="row question-filter">
+        <div class="col-md-12 sort-questions">
+            <ul>
+                <li>
+                    <a class="" href="~/User/Profil/@((new Coderin.BLL.UserRepository().Get((Guid)Session["userId"])).Id)">Sorularım</a>
+                </li>
+                <li>
+                    <a class="" href="#">Cevaplarım</a>
+                </li>
+                <li>
+                    <a class="" href="~/Home/Favorilerim">Favorilerim</a>
+                </li>
+                <li>
+                    <a class="active" href="~/User/MyNotifications/@((new Coderin.BLL.UserRepository().Get((Guid)Session["userId"])).Id)">Bildirimlerim </a>
+                </li>
+                <li>
+                    <a class="" href="~/User/Mesajlarim">Mesajlarım (1)</a>
+                </li>
+                <li>
+                    <a class="" href="~/Home/CVim">CV im</a>
+                </li>
+                <li>
+                    <a class="" href="~/Home/Ayarlar">Ayarlar</a>
+                </li>
+            </ul>
+        </div>
+    </div><!-- END QUESTIONS-FILTER -->
+
+    <div class="main-questions-list">
+        <ul id="main_questions_list">
+
+            @foreach (var item in collection)
+            {
+                
+            }
+
+            @foreach (var item in questionRepository.GetBy(x => x.UserId == Model.Id).OrderByDescending(x => x.CreateDate))
+            {
+                foreach (var items in answerRepository.GetBy(x => x.QuestionId == (Guid)item.Id).OrderByDescending(x => x.CreateDate))
+                {
+                    <li class="answer-item question-item post-2085 answer type-answer status-publish hentry" data-id="2085">
+                        <div class="col-md-8 q-left-content">
+                            <div class="q-ltop-content title-answer-style">
+                                <a href="#">@userRepository.Get(items.UserId).Name  @userRepository.Get(items.UserId).Surname</a>
+                                <a href="~/Answer/Index/@items.Id/" class="question-title">
+                                    @item.Name
+                                </a>
+                                Konulu Soruya Cevap Verdi
+                            </div>
+                        </div>
+                        <div class="col-md-4 q-right-content">
+                            Tarih : 10/02/2016
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                }
+            }
+            @foreach (var _items in followQuestionRepository.GetBy(x => x.FFollowerId == Model.Id))
+            {
+                foreach (var item in answerRepository.GetBy(x => x.QuestionId == _items.FQuestionId))
+                {
+                    <li class="answer-item question-item post-2085 answer type-answer status-publish hentry" data-id="2085">
+                        <div class="col-md-8 q-left-content">
+                            <div class="q-ltop-content title-answer-style">
+
+                                <a href="~/User/Profil/@item.UserId">@userRepository.Get(item.UserId).Name.ToUpper()&nbsp;&nbsp;&nbsp;@userRepository.Get(item.UserId).Surname.ToUpper() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+                                <a href="~/Answer/Index/@item.Id/" class="question-title">
+                                    @item.Name &nbsp;&nbsp;&nbsp;
+                                </a>
+
+                                Takip ettiğin Soruya Cevap Verdi
+                            </div>
+                        </div>
+                        <div class="col-md-4 q-right-content">
+                            Tarih : @answerRepository.Get(item.Id).CreateDate.ToShortDateString()
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                }
+
+            }
+        </ul>
+    </div><!-- END MAIN-QUESTIONS-LIST -->
+    <div class="row paginations home">
+        <div class="col-md-12">
+        </div>
+    </div><!-- END MAIN-PAGINATIONS -->
+</div>

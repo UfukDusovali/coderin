@@ -1,0 +1,68 @@
+﻿@using Coderin.Entity;
+@model User
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="editor-label">
+        Rol Seçiniz :
+    </div>
+    <div class="editor-field">
+        @Html.DropDownListFor(model => model.AuthorityId, ((List<Authority>)ViewData["Authorities"]).Select(x => new SelectListItem
+   {
+       Text = x.Name,
+       Value = x.Id.ToString()
+   }), "- Rol Seçiniz -", new { @id = "drpAuthorities" })
+        @Html.ValidationMessageFor(model => model.AuthorityId)
+    </div>
+
+
+    <div class="editor-label">
+        Ad :
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="editor-label">
+        Soyad :
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Surname)
+        @Html.ValidationMessageFor(model => model.Surname)
+    </div>
+
+
+    <div class="editor-label">
+        EMail :
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Mail)
+        @Html.ValidationMessageFor(model => model.Mail)
+    </div>
+
+    <div class="editor-label">
+        Şifre :
+    </div>
+    
+    <div class="editor-field">
+        @Html.TextBoxFor(model => model.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+    <input type="submit" name="name" value="Kaydet" />
+}
+
+@section scripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

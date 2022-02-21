@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Ata";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Tag Ata</h2>
+
+@using (Html.BeginForm())
+{ 
+
+<div class="editor-label">
+    Tag
+</div>
+<div class="editor-field">
+    <input type="checkbox" name="Tag" id="Tag" />
+</div>
+}
+
+<div>
+    @Html.ActionLink("Geri", "Index")
+</div>

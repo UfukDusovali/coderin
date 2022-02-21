@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Coderin.Entity.Tag>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-8 main-content">
+    <div class="row select-category">
+        <div class="col-md-6 col-xs-6 current-category">
+            <span>Etiketler</span>
+        </div>
+        <div class="col-md-6 col-xs-6 select-categories input-find-tags">
+            <form class="form-input-search" autocomplete="off" method="GET" action="http://www.enginethemes.com/demo/qaengine/categories-3/">
+                <input autocomplete="off" type="text" name="ckey" id="ckey" value="" class="search-users" placeholder="Etiket Ara">
+                <i class="fa fa-chevron-circle-right"></i>
+            </form>
+        </div>
+    </div>
+    <div class="main-tag-list">
+        <div class="tags-list row ">
+            @{string baz = "";}
+            @foreach (Coderin.Entity.Tag item in Model)
+            {
+                string firstLetter = item.Name.Substring(0, 1);
+                if (baz == "" || baz != firstLetter)
+                {
+                    <div class="clearfix"></div>
+                    <div class="grey-line"></div>
+                    <div class="col-md-12">
+                        <span class="character">@firstLetter</span>
+                    </div>
+                    <div class="clearfix"></div>
+                }
+                <div class="tag-item cat-item col-md-2 col-xs-2">
+                    <a href="~/Tag/ByTagNormal/@Coderin.UI.Functions.UrlDuzenle(@item.Name)-@item.Id" class="q-tag">@item.Name</a>
+                </div>
+                baz = firstLetter;
+            }
+        </div>
+        <div class="grey-line"></div>
+        <div class="clearfix"></div>
+    </div><!-- END MAIN-TAGS-LIST -->
+</div>

@@ -1,0 +1,314 @@
+﻿@model Coderin.Entity.Question
+@using Coderin.BLL;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    AnswerRepository answerRepository = new AnswerRepository();
+    CommentRepository commetRepository = new CommentRepository();
+    TagQuestionRepository tagQuestionRepository = new TagQuestionRepository();
+}
+<div itemscope="" itemtype="http://schema.org/Question" class="col-md-8 main-content single-content">
+    <div class="row select-category single-head">
+        <div class="col-md-2 col-xs-2">
+            <span class="back">
+                <i class="fa fa-angle-double-left"></i> <a href="~/Home/Index">Anasayfa</a>
+            </span>
+        </div>
+        <div class="col-md-8 col-xs-8">
+            <h1 itemprop="name">@Model.Name</h1>
+        </div>
+    </div><!-- END SELECT-CATEGORY -->
+    <div id="question_content" class="row question-main-content question-item" data-id="49">
+        <!-- Vote section -->
+        <div class="col-md-2 col-xs-2 vote-block">
+            <!-- vote group -->
+            <ul>
+                <!-- vote up -->
+                <li title="" data-original-title="This is useful.">
+                    <a href="javascript:void(0)" data-name="vote_up" class="action vote vote-up img-circle " data-original-title="" title="">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </li>
+                <!--// vote up -->
+                <!--vote point -->
+                <li data-original-title="" title="">
+                    <span itemprop="upvoteCount" class="vote-count">@Model.Vote</span>
+                </li>
+                <!--// vote point -->
+                <!-- vote down -->
+                <li title="" data-original-title="This is not useful">
+                    <a href="javascript:void(0)" data-name="vote_down" class="action vote vote-down img-circle " data-original-title="" title="">
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                </li>
+                <!--// vote down -->
+                <li class="single-question-pump" data-original-title="" title="">
+                </li>
+            </ul>
+            <!--// vote group -->
+        </div>            <!--// Vote section -->
+        <div class="col-md-9 col-xs-9 q-right-content">
+
+            <!-- admin control -->
+            <ul class="post-controls">
+                <li>
+                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Düzenle" data-name="edit" class="post-edit action">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Sil" data-name="delete" class="post-delete action">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </li>
+                <!-- Follow Action -->
+                <li>
+                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Takibi Kaldır" data-name="unfollow" class="action followed">
+                        <i class="fa fa-minus-square"></i>
+                    </a>
+                </li>
+                <!-- // Follow Action -->
+                <!-- report Action -->
+                <li>
+                    <a href="javascript:void(0)" data-toggle="tooltip" data-original-title="Raporla" data-name="report" class="action report">
+                        <i class="fa fa-exclamation-triangle"></i>
+                    </a>
+                </li>
+                <!--// Report Action -->
+            </ul>
+            <!--// admin control -->
+            <!-- question tag -->
+            <div class="top-content">
+                <ul class="question-tags">
+                    @foreach (Coderin.Entity.TagQuestion item in tagQuestionRepository.GetBy(x => x.QuestionId == Model.Id))
+                    {
+                        <li>
+                            <a class="q-tag" href="~/Tag/ByTagNormal/@Coderin.UI.Functions.UrlDuzenle(@item.Tag.Name)-@item.Tag.Id">
+                                @item.Tag.Name
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <!--// question tag -->
+            <div class="clearfix"></div>
+
+            <div itemprop="text" class="question-content">
+                @Html.Raw(@Model.QuestionBody)
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-xs-8 question-cat" data-user="1">
+                    <a href="http://www.enginethemes.com/demo/qaengine/blog/member/admin/">
+                        <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                            <span class="author-avatar">
+                                <img itemprop="image" src="http://enginethemes.com/demo/qaengine/wp-content/uploads/2015/01/12.jpg" class="avatar" alt="">
+                            </span>
+                            <span itemprop="name" class="author-name">@Model.User.Name @Model.User.Surname</span>
+                        </span>
+                    </a>
+                    <span title="1517" class="user-badge" style="background-color:#780978;">Professor</span>
+                    <span class="question-time" itemprop="dateCreated" datetime="on June 5, 2014">
+                        Tarih : @Model.CreateDate.ToShortDateString()
+                    </span>
+                </div>
+                <div class="col-md-4 col-xs-4 question-control">
+                    <ul>
+                        <li>
+                            <a class="share-social" href="javascript:void(0)" data-toggle="popover" data-placement="top" data-container="body" data-content="<ul class=&quot;socials-share&quot;><li><a href=&quot;https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.enginethemes.com%2Fdemo%2Fqaengine%2Fblog%2Fquestion%2Fwhat-is-it-like-to-be-a-billionaire%2F&amp;t=What is it like to be a billionaire?&quot; target=&quot;_blank&quot; class=&quot;btn-fb&quot;><i class=&quot;fa fa-facebook&quot;></i></a></li><li><a target=&quot;_blank&quot; href=&quot;http://twitter.com/share?text=What is it like to be a billionaire?&amp;url=http%3A%2F%2Fwww.enginethemes.com%2Fdemo%2Fqaengine%2Fblog%2Fquestion%2Fwhat-is-it-like-to-be-a-billionaire%2F&quot; class=&quot;btn-tw&quot;><i class=&quot;fa fa-twitter&quot;></i></a></li><li class=&quot;ggplus&quot;><a target=&quot;_blank&quot;  href=&quot;https://plus.google.com/share?url=http%3A%2F%2Fwww.enginethemes.com%2Fdemo%2Fqaengine%2Fblog%2Fquestion%2Fwhat-is-it-like-to-be-a-billionaire%2F&quot; class=&quot;btn-gg&quot;><i class=&quot;fa fa-google-plus&quot;></i></a></li></ul>" data-html="true" data-original-title="" title="">
+                                    Paylaş <i class="fa fa-share"></i>
+                                </a>
+                        </li>
+                        <!-- <li class="collapse">
+                            <a href="javascript:void(0)">
+                                Report <i class="fa fa-flag"></i>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+        <div class="clearfix"></div>
+    </div><!-- END QUESTION-MAIN-CONTENT -->
+
+
+    <div class="sticky-wrapper">
+        <div class="row answers-filter" id="answers_filter">
+            <div class="max-col-md-8">
+                <div class="col-md-6 col-xs-6">
+                    <span class="answers-count">
+                        <span itemprop="answerCount" class="number">
+                            @answerRepository.GetBy(x => x.QuestionId == @Model.Id).Count()
+                        </span> Cevap
+                    </span>
+                </div>
+                <div class="col-md-6 col-xs-6 sort-questions">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANSWERS LOOP -->
+    <div id="answers_main_list">
+        @foreach (Coderin.Entity.Answer item in answerRepository.GetBy(x => x.QuestionId == @Model.Id).OrderByDescending(x => x.Vote).OrderByDescending(x => x.IsCheck))
+        {
+            <div itemscope="" itemtype="http://schema.org/Answer" class="row question-main-content question-item answer-item" id="1966">
+                <div class="col-md-2 col-xs-2 vote-block">
+                    <!-- vote group -->
+                    <ul>
+                        <!-- vote up -->
+                        <li title="" data-original-title="This is useful.">
+                            <a href="javascript:void(0)" data-name="vote_up" class="action vote vote-up img-circle " data-original-title="" title="">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                        </li>
+                        <!--// vote up -->
+                        <!--vote point -->
+                        <li data-original-title="" title="">
+                            <span itemprop="upvoteCount" class="vote-count">@item.Vote</span>
+                        </li>
+                        <!--// vote point -->
+                        <!-- vote down -->
+                        <li title="" data-original-title="This is not useful">
+                            <a href="javascript:void(0)" data-name="vote_down" class="action vote vote-down img-circle " data-original-title="" title="">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </li>
+                        <!--// vote down -->
+                        <li title="" data-original-title="Mark as best answer">
+                            <a href="javascript:void(0)" data-name="accept-answer" class="action accept-answer img-circle " data-original-title="" title="">
+                                <i class="fa fa-check"></i>
+                            </a>
+                        </li>
+                        <li class="single-question-pump" data-original-title="" title="">
+                        </li>
+                    </ul>
+                    <!--// vote group -->
+                </div>
+                <div class="col-md-9 col-xs-9 q-right-content">
+                    <!-- control tool for admin, moderate -->
+                    <ul class="post-controls">
+                        <li>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="Düzenle" data-name="edit" class="post-edit action">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="Sil" data-name="delete" class="post-delete action">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="Raporla" data-name="report" class="action report">
+                                <i class="fa fa-exclamation-triangle"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--// control tool for admin, moderate -->
+                    <div class="top-content">
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div itemprop="text" class="question-content">
+                        @Html.Raw(@item.AnswerBody)
+                    </div>
+
+                    <div class="row cat-infomation">
+                        <!-- Answer owner infomation -->
+                        <div class="col-md-8 col-xs-8 question-cat" data-user="11">
+                            <a href="http://www.enginethemes.com/demo/qaengine/blog/member/admindemo/">
+                                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+                                    <span class="author-avatar">
+                                        <img itemprop="image" src="http://static.enginethemes.com/demo/qaengine/2016/01/128.jpg" class="avatar" alt="">
+                                    </span>
+                                    <span itemprop="name" class="author-name">@item.User.Name @item.User.Surname</span>
+                                </span>
+                            </a>
+                            <span title="72" class="user-badge" style="background-color:#04aad4;">Train</span>                <span itemprop="dateCreated" datetime="2015-01-19 06:46:37" class="question-time">
+                                Tarih : @item.CreateDate.ToShortDateString()
+                            </span>
+                        </div>
+                        <!--// Answer owner infomation -->
+
+                        <div class="col-md-4 col-xs-4 question-control">
+                            <!-- share comment , report -->
+                            <ul>
+                                <li>
+                                    <a class="share-social" href="javascript:void(0);" data-toggle="popover" data-placement="top" data-container="body" data-content="<ul class=&quot;socials-share&quot;><li><a href=&quot;https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.enginethemes.com%2Fdemo%2Fqaengine%2Fblog%2Fanswer%2Fre-what-is-it-like-to-be-a-billionaire%2F&amp;t=RE: What is it like to be a billionaire?&quot; target=&quot;_blank&quot; class=&quot;btn-fb&quot;><i class=&quot;fa fa-facebook&quot;></i></a></li><li><a target=&quot;_blank&quot; href=&quot;http://twitter.com/share?text=RE: What is it like to be a billionaire?&amp;url=http%3A%2F%2Fwww.enginethemes.com%2Fdemo%2Fqaengine%2Fblog%2Fanswer%2Fre-what-is-it-like-to-be-a-billionaire%2F&quot; class=&quot;btn-tw&quot;><i class=&quot;fa fa-twitter&quot;></i></a></li><li class=&quot;ggplus&quot;><a target=&quot;_blank&quot;  href=&quot;https://plus.google.com/share?url=http%3A%2F%2Fwww.enginethemes.com%2Fdemo%2Fqaengine%2Fblog%2Fanswer%2Fre-what-is-it-like-to-be-a-billionaire%2F&quot; class=&quot;btn-gg&quot;><i class=&quot;fa fa-google-plus&quot;></i></a></li></ul>" data-html="true" data-original-title="" title="">
+                        Paylaş <i class="fa fa-share"></i>
+                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="javascript:void(0)">
+                                        Report <i class="fa fa-flag"></i>
+                                    </a>
+                                </li> -->
+                                <!-- comment count -->
+                                <li>
+                                    <a href="#container_1966" class="show-comments ">
+                                        Yorum(@commetRepository.GetBy(x => x.AnswerId == @item.Id).Count())  <i class="fa fa-comment"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--// share comment , report -->
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        }
+        <!-- END REPLY-ITEM -->
+    </div>
+    <!-- ANSWERS LOOP -->
+    <div class="row paginations collapse">
+        <div class="col-md-12">
+        </div>
+    </div><!-- END PAGINATIONS -->
+    <script type="text/javascript">
+        var answersData = [{ "ID": 1966, "post_author": "11", "post_date": "2015-01-19 06:46:37", "post_date_gmt": "2015-01-19 06:46:37", "post_content": "nostalgia", "post_title": "RE: What is it like to be a billionaire?", "post_excerpt": "", "post_status": "publish", "comment_status": "open", "ping_status": "open", "post_password": "", "post_name": "re-what-is-it-like-to-be-a-billionaire", "to_ping": "", "pinged": "", "post_modified": "2015-01-19 06:46:37", "post_modified_gmt": "2015-01-19 06:46:37", "post_content_filtered": "", "post_parent": 49, "guid": "http:\/\/enginethemes.com\/demo\/qaengine\/answer\/re-what-is-it-like-to-be-a-billionaire\/", "menu_order": 0, "post_type": "answer", "post_mime_type": "", "comment_count": "0", "filter": "raw", "et_vote_count": 0, "et_answer_authors": [], "et_answers_count": 0, "et_vote_up_authors": [], "et_vote_down_authors": [], "et_is_best_answer": "", "id": 1966, "voted_down": false, "voted_up": false, "user_badge": "<span title=\u002272\u0022 class=\u0022user-badge\u0022 style=\u0022background-color:#04aad4;\u0022>Train<\/span>", "user_badge_color": "#04aad4", "user_badge_title": "Train", "avatar": "<img itemprop=\u0022image\u0022 src=\u0022http:\/\/static.enginethemes.com\/demo\/qaengine\/2016\/01\/128.jpg\u0022 class=\u0022avatar\u0022 alt=\u0022\u0022 \/>", "new_nonce": "b395ea1c7f", "human_date": "on January 19, 2015", "content_filter": "<p>nostalgia<\/p>\n", "content_edit": "<p>nostalgia<\/p>\n", "parent_author": "1", "comments": "Comment(0) ", "author_name": "Engine Admin Demo", "author_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/blog\/member\/admindemo\/", "reported": false }, { "ID": 2085, "post_author": "11", "post_date": "2015-05-27 05:02:41", "post_date_gmt": "2015-05-27 05:02:41", "post_content": "Fuck your self", "post_title": "RE: What is it like to be a billionaire?", "post_excerpt": "", "post_status": "publish", "comment_status": "open", "ping_status": "open", "post_password": "", "post_name": "re-what-is-it-like-to-be-a-billionaire-2", "to_ping": "", "pinged": "", "post_modified": "2015-05-27 05:02:41", "post_modified_gmt": "2015-05-27 05:02:41", "post_content_filtered": "", "post_parent": 49, "guid": "http:\/\/enginethemes.com\/demo\/qaengine\/answer\/re-what-is-it-like-to-be-a-billionaire-2\/", "menu_order": 0, "post_type": "answer", "post_mime_type": "", "comment_count": "0", "filter": "raw", "et_vote_count": 0, "et_answer_authors": [], "et_answers_count": 0, "et_vote_up_authors": [], "et_vote_down_authors": [], "et_is_best_answer": "", "id": 2085, "voted_down": false, "voted_up": false, "user_badge": "<span title=\u002272\u0022 class=\u0022user-badge\u0022 style=\u0022background-color:#04aad4;\u0022>Train<\/span>", "user_badge_color": "#04aad4", "user_badge_title": "Train", "avatar": "<img itemprop=\u0022image\u0022 src=\u0022http:\/\/static.enginethemes.com\/demo\/qaengine\/2016\/01\/128.jpg\u0022 class=\u0022avatar\u0022 alt=\u0022\u0022 \/>", "new_nonce": "b395ea1c7f", "human_date": "on May 27, 2015", "content_filter": "<p>Fuck your self<\/p>\n", "content_edit": "<p>Fuck your self<\/p>\n", "parent_author": "1", "comments": "Comment(0) ", "author_name": "Engine Admin Demo", "author_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/blog\/member\/admindemo\/", "reported": false }];
+        var commentsData = [];
+    </script>
+
+    <div class="row form-reply">
+        <div class="col-md-12">
+            <h3>Cevabınız</h3>
+            @using (Ajax.BeginForm("AnswerTheQuestion", "Home", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divSonuc" }, new { id = "formKapsayici" }))
+            {
+                <input type="hidden" name="hiddenId" id="hiddenId" value="@Model.Id" />
+                <textarea id="editor2" name="editor2"></textarea>
+                <br />
+                //if (Session["UserId"] != null)
+                //{
+                    <input name="submit" type="submit" id="submit" class="submit" value="Cevabı Gönder">
+                @*}
+                else
+                {
+                    <a class="login-url" href="javascript:void(0)" data-toggle="modal">
+                        <i class="fa fa-user"></i>  Giriş / Üye Ol
+                    </a>
+                }*@
+            }
+        </div>
+    </div><!-- END FORM REPLY -->
+
+    <div class="clearfix"></div>
+</div>
+@section Scripts {
+    <script>
+        CKEDITOR.replace('editor2');
+    </script>
+    <script type="text/javascript">
+        jQuery("#submit").click(function () {
+            var aBody = CKEDITOR.instances.editor2.getData().trim();
+
+            if (aBody == "") {
+                alert("Lütfen Cevabı Boş Geçmeyiniz");
+                event.preventDefault();
+            }
+        });
+    </script>
+}

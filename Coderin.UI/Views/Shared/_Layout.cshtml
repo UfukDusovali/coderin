@@ -1,0 +1,1397 @@
+﻿@{
+    Coderin.BLL.TagRepository tagRepository = new Coderin.BLL.TagRepository();
+    Coderin.BLL.UserBehaviourRepository userBehaviourRepository = new Coderin.BLL.UserBehaviourRepository();
+    Coderin.BLL.QuestionRepository questionRepository = new Coderin.BLL.QuestionRepository();
+    Coderin.BLL.TagQuestionRepository tagQuestionRepository = new Coderin.BLL.TagQuestionRepository();
+    Coderin.BLL.UserRepository userRepository = new Coderin.BLL.UserRepository();
+    Coderin.BLL.AnswerRepository answerRepository = new Coderin.BLL.AnswerRepository();
+    TempData["URLim"] = this.Request.RawUrl;
+}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <link rel="shortcut icon" href="#" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin,cyrillic,cyrillic-ext,vietnamese,latin-ext' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="~/Content/MainSite/wp-content/themes/qaengine/js/libs/selectivizr-min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+            <script src="http://www.enginethemes.com/demo/qaengine/wp-content/themes/qaengine/includes/aecore/assets/js/html5.js"></script>
+        <![endif]-->
+    <script type="text/javascript">
+        ae_globals = { "ajaxURL": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php", "imgURL": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/", "posts_per_page": "12", "homeURL": "http:\/\/www.enginethemes.com\/demo\/qaengine", "user_confirm": 0, "pending_questions": 0, "pending_answers": 0, "introURL": "http:\/\/www.enginethemes.com\/demo\/qaengine\/intro-2\/", "gplus_client_id": "185639095186-qp1uo53pjqb428gp2drtg5o7ladkh10l.apps.googleusercontent.com", "plupload_config": { "max_file_size": "3mb", "url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php", "flash_swf_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf", "silverlight_xap_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap" } }		</script>
+    <link rel="alternate" type="application/rss+xml" title="QA Engine - Enginethemes &raquo; Feed" href="feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="QA Engine - Enginethemes &raquo; Comments Feed" href="comments/feed/index.html" />
+    <link rel="alternate" type="application/rss+xml" title="QA Engine - Enginethemes &raquo; Questions Listing Comments Feed" href="questions-listing/feed/index.html" />
+    <script type="text/javascript">
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/72x72\/", "ext": ".png", "source": { "concatemoji": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.4.2" } };
+        !function (a, b, c) { function d(a) { var c, d = b.createElement("canvas"), e = d.getContext && d.getContext("2d"), f = String.fromCharCode; return e && e.fillText ? (e.textBaseline = "top", e.font = "600 32px Arial", "flag" === a ? (e.fillText(f(55356, 56806, 55356, 56826), 0, 0), d.toDataURL().length > 3e3) : "diversity" === a ? (e.fillText(f(55356, 57221), 0, 0), c = e.getImageData(16, 16, 1, 1).data.toString(), e.fillText(f(55356, 57221, 55356, 57343), 0, 0), c !== e.getImageData(16, 16, 1, 1).data.toString()) : ("simple" === a ? e.fillText(f(55357, 56835), 0, 0) : e.fillText(f(55356, 57135), 0, 0), 0 !== e.getImageData(16, 16, 1, 1).data[0])) : !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g; c.supports = { simple: d("simple"), flag: d("flag"), unicode8: d("unicode8"), diversity: d("diversity") }, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.simple && c.supports.flag && c.supports.unicode8 && c.supports.diversity || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='bootstrap-css' href='~/Content/MainSite/wp-content/themes/qaengine/includes/aecore/assets/css/bootstrap.min6aec.css?ver=3.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-color-picker-css' href='~/Content/MainSite/wp-admin/css/color-picker.minc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='demo-bar-css' href='~/Content/MainSite/wp-content/plugins/et_demobar_new_CE/css/mainc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='mCustomScrollbar-css' href='~/Content/MainSite/Content/MainSite/plugins/et_demobar_new_CE/css/jquery.mCustomScrollbar.minc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/libs/font-awesome.minc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='main-style-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/mainc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='editor-style-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/editorc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='push-menu-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/libs/push-menuc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='chosen-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/libs/chosenc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='custom-style-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/customc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='date-picker-style-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/bootstrap-datetimepicker.minc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='color-picker-style-css' href='~/Content/MainSite/wp-content/themes/qaengine/css/colorpickerc1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='style-css' href='~/Content/MainSite/wp-content/themes/qaengine-child/stylec1f9.css?ver=4.4.2' type='text/css' media='all' />
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/jqueryc1d8.js?ver=1.11.3'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/jquery-migrate.min1576.js?ver=1.2.1'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/plupload/plupload.full.mincc91.js?ver=2.1.8'></script>
+    <link rel='https://api.w.org/' href='~/Content/MainSite/wp-json/index.html' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="~/Content/MainSite/wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 4.4.2" />
+    <link rel="canonical" href="index.html" />
+    <link rel='shortlink' href='index.html' />
+
+    <script type="text/json" id="user_id">
+        {"ID":11,"id":11}
+    </script>
+    @Html.Raw(TempData["Error"])
+    @* ckeditor start *@
+    <script src="~/Content/MainSite/ckeditor/build-config.js"></script>
+    <script src="~/Content/MainSite/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/MainSite/ckeditor/config.js"></script>
+    <script src="~/Content/MainSite/ckeditor/plugins/pbckcode-1.2.3/plugin.js"></script>
+    @* ckeditor end *@
+</head>
+<body class="home page page-id-12 page-template page-template-page-questions page-template-page-questions-php logged-in cbp-spmenu-push">
+    <div class="sampleClass"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <header id="header">
+                <div class="col-md-2 col-xs-2" id="logo">
+                    <a href="http://www.enginethemes.com/demo/qaengine">
+                        <img src="~/Content/img/coderinlogo2beyazpng.png" />
+                    </a>
+                </div><!-- logo -->
+                @if (Session["UserId"] == null)
+                {
+                <div id="menu_qa" class="col-md-8 col-xs-8">
+
+                    <div class="header-menu">
+                        <ul>
+                            <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-12 current_page_item menu-item-20 active ">
+                                <a class="login-url" href="javascript:void(0)" data-toggle="modal">
+                                    <i class="fa fa-user"></i>  Giriş / Üye Ol
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- menu -->
+                    <div class="header-search-wrapper">
+                        <section class="buttonset">
+                            <button id="showLeftPush"><i class="fa fa-question"></i></button>
+                            <button id="showRightPush"><i class="fa fa-bar-chart-o"></i></button>
+
+                            <!-- <button id="showLeft"><i class="fa fa-question"></i></button>
+                            <button id="showRight"><i class="fa fa-bar-chart-o"></i></button> -->
+                            <button id="showTop"><i class="fa fa-list"></i></button>
+                        </section>
+                        <form id="header_search" method="GET" action="http://www.enginethemes.com/demo/qaengine" class="disable-mobile-search">
+                            <input type="text" name="keyword" value="" placeholder="Ara.." autocomplete="off" />
+                            <a href="#"><i class="fa fa-search"></i></a>
+                            <div id="search_preview" class="search-preview empty"></div>
+                        </form>
+                    </div><!-- search -->
+                </div>
+                }
+                else
+                {
+                    <div id="menu_qa" class="col-md-8 col-xs-8">
+                    </div>
+                        <div class="header-menu">
+                       
+                    </div><!-- menu -->
+                    <div id="login_qa" class="col-md-2 col-xs-2 btn-group header-avatar ">
+                        <span class="expand dropdown-toggle" type="span" data-toggle="dropdown">
+                            <a href="javascript:void(0)" class="dropdown-account ">
+                                <span class="avatar"><img itemprop="image" src="../../../static.enginethemes.com/demo/qaengine/2016/01/128.jpg" class="avatar" alt="" /></span>
+                                <span class="display_name">@((new Coderin.BLL.UserRepository().Get((Guid)Session["userId"])).Name + " " + (new Coderin.BLL.UserRepository().Get((Guid)Session["userId"])).Surname)</span>
+                                <span class="icon-down"><i class="fa fa-chevron-circle-down"></i></span>
+                            </a>
+                        </span>
+                        <ul class="dropdown-menu dropdown-profile">
+                            <li>
+                                <a href="~/User/Profil/@((new Coderin.BLL.UserRepository().Get((Guid)Session["userId"])).Id)">
+                                    <i class="fa fa-user"></i> Hesabım
+                                </a>
+                            </li>
+                            <li>
+                                <a href="~/User/Logout">
+                                    <i class="fa fa-power-off"></i> Çıkış
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                }
+
+                    <!-- avatar -->
+</header><!-- END HEADER -->
+            <div class="col-md-12 col-xs-12" id="header_sidebar">
+            </div>
+            <div class="col-md-2 disable-mobile left-sidebar">
+
+                <div class="widget widget-btn">
+                    <button type="button" data-toggle="modal" data-target="#modal_submit_questions" class="action ask-question">
+                        <i class="fa fa-plus"></i>SORU SOR
+                    </button>
+                </div><!-- END BUTTON MODAL QUESTION -->
+                <div class="widget widget-menus">
+                    <div class="menu-left-menu-container">
+                        <ul id="menu-left-menu-1" class="menu">
+                            <li class="fa-question-circle menu-item menu-item-type-custom menu-item-object-custom menu-item-1765"><a href="~/Home/Index"><i class="fa fa-question-circle"></i>Sorular</a></li>
+                            <li class="fa-tags menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a href="~/Tag/Index"><i class="fa fa-tags"></i>Etiketler</a></li>
+                            <li class="fa-trophy menu-item menu-item-type-post_type menu-item-object-page menu-item-18"><a href="badges/index.html"><i class="fa fa-trophy"></i>Ünvanlar</a></li>
+                            <li class="fa-users menu-item menu-item-type-post_type menu-item-object-page menu-item-1743"><a href="~/Home/Uyeler"><i class="fa fa-users"></i>Üyeler</a></li>
+                        </ul>
+                    </div>
+                </div><!-- END LEFT MENU -->
+                <div class="widget widget-recent-activity">
+                    <ul>
+                        @foreach (Coderin.Entity.UserBehaviour item in userBehaviourRepository.GetAll().OrderByDescending(x => x.CreateDate).Take(15))
+                        {
+                            if (item.BehaviourStatus == (int)Coderin.Base.Enum.BehaviourStatus.SoruSordu)
+                            {
+                        <li>
+                            <i class="fa fa-question-circle"></i><span>
+                                        <a href="~/User/Profil/@item.User.Id">@item.User.Name @item.User.Surname</a> <a href="~/Question/Index/@item.Question.NameUrl-@item.QuestionId">@item.Question.Name</a> Başlıklı Soru Sordu.<br>
+                                <span class="time-activity">
+                                            @item.CreateDate.ToString()
+                                </span>
+                            </span>
+                        </li>
+                            }
+                            else if (item.BehaviourStatus == (int)Coderin.Base.Enum.BehaviourStatus.SoruCevapladi)
+                            {
+                        <li>
+                                    <i class="fa fa-comments"></i>
+                                    <span>
+                                        <a href="~/User/Profil/@item.User.Id">@item.User.Name @item.User.Surname</a> <a href="~/Question/Index/@item.Question.NameUrl-@item.QuestionId">@item.Question.Name</a> Başlıklı Soruya Cevap Attı.<br>
+                                        <span class="time-activity">
+                                            08/03/2016
+                                        </span>
+                                    </span>
+                                </li>
+                            }
+                        }
+                        <li>
+                            <i class="fa fa-undo"></i><span>
+                                <a href="#">Süleyman</a> <a href="blog/question/falan/index.html">Falan filan ??. </a> Başlıklı Sorusunu Güncelledi.<br>
+                                <span class="time-activity">
+                                    10 dk önce
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-question-circle"></i>                    <span>
+                                <a href="#">Kamil Kamiloviç</a> <a href="blog/question/test/index.html">Test????</a> Başlıklı Sorusunu Sordu.<br>
+                                <span class="time-activity">
+                                    10/03/2016
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-question-circle"></i>                    <span>
+                                <a href="#">KamişKamiş</a> <a href="blog/question/test/index.html">Deneme Soru  !!????</a> Başlıklı Sorusunu Sordu.<br>
+                                <span class="time-activity">
+                                    09/03/2016
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fa fa-thumbs-up"></i>                    <span>
+                                <a href="#">Ahmet Mehmet</a> <a href="blog/question/what-are-good-ways-to-learn-to-become-the-best-digital-marketer/index.html">falan fişmana ?</a> Başlıklı Soruya Verdiği Cevabı Onaylandı.<br>
+                                <span class="time-activity">
+                                    08/03/2016
+                                </span>
+                            </span>
+                        </li>
+                    </ul>
+
+                </div><!-- END widget-recent-activities -->
+
+                <div class="clearfix"></div>
+                <!-- SOCIAL LINKs -->
+                <div class="social-links">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/EngineThemes" target="_blank" class="social fb">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/enginewpthemes" target="_blank" class="social tw">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/+EngineThemes" target="_blank" class="social gg">
+                                <i class="fa fa-google"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END / SOCIAL LINKs -->
+                <div class="copyright">
+                    2016 | Software In Turkey<br>
+                    Copyright &copy; Tüm Hakları Saklıdır
+                </div>
+            </div><!-- END LEFT-SIDEBAR -->
+            @RenderBody()
+            <div class="col-md-2 disable-mobile right-sidebar">
+                <div class="widget widget-statistic">
+                    <ul>
+                        <li class="questions-count">
+                            <p>Soru<p>
+                                <span>@questionRepository.GetAll().Count()</span>
+                        </li>
+                        <li class="members-count">
+                            <p>Üye<p>
+                                <span>@userRepository.GetAll().Count()</span>
+                        </li>
+                    </ul>
+                </div><!-- END widget-statistic -->
+                <div class="widget widget-related-tags">
+                    <h3>Etiketler</h3>
+                    <ul>
+                        @foreach (Coderin.Entity.Tag item in tagRepository.GetAll().OrderByDescending(x => x.IsProTag).Take(15))
+                        {
+                        <li>
+                                <a class="q-tag" href="~/Tag/ByTagNormal/@Coderin.UI.Functions.UrlDuzenle(@item.Name)-@item.Id">@item.Name</a> x @tagQuestionRepository.GetBy(x => x.TagId == @item.Id).Count()
+                        </li>
+                        }
+                    </ul>
+                    <a href="~/Tag/Index">Daha Fazla...</a>
+                </div><!-- END widget-related-tags -->
+                <div class="widget widget-hot-questions">
+                    <h3>En Son Sorulanlar</h3>
+                    <ul>
+                        @foreach (Coderin.Entity.Question item in questionRepository.GetAll().OrderByDescending(x => x.CreateDate).Take(10))
+                        {
+                        <li>
+                                <a href="~/Question/Index/@item.NameUrl-@item.Id">
+                                    <span class="topic-title">@item.Name</span>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div><!-- END widget-related-tags -->
+                <div class="widget user-widget">
+                    <h3 class="widgettitle">En Rütbeli Üyeler</h3>
+                    <div class="hot-user-question">
+                        *** Buraya Her Tag e  Ait Prof. lar vb. yazılabilir. !
+                        <ul>
+                            <li>
+                                <span class="number">1</span>
+                                <span class="username ">
+                                    <a href="blog/member/alex/index.html" title="525">
+                                        Sülüman
+                                    </a>
+                                </span>
+                                <span class="points-count" title="525 Point(s)">
+                                    <i class="fa fa-star"></i>
+                                    <span>525</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="number">2</span>
+                                <span class="username ">
+                                    <a href="blog/member/marry/index.html" title="184">
+                                        Jale
+                                    </a>
+                                </span>
+                                <span class="points-count" title="184 Point(s)">
+                                    <i class="fa fa-star"></i>
+                                    <span>184</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="number">3</span>
+                                <span class="username ">
+                                    <a href="blog/member/john/index.html" title="131">
+                                        Crazy_Girl
+                                    </a>
+                                </span>
+                                <span class="points-count" title="131 Point(s)">
+                                    <i class="fa fa-star"></i>
+                                    <span>131</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="number">4</span>
+                                <span class="username ">
+                                    <a href="blog/member/smith/index.html" title="31">
+                                        Ateşli
+                                    </a>
+                                </span>
+                                <span class="points-count" title="31 Point(s)">
+                                    <i class="fa fa-star"></i>
+                                    <span>31</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="number">5</span>
+                                <span class="username ">
+                                    <a href="blog/member/anntt/index.html" title="12">
+                                        Ye_Beni
+                                    </a>
+                                </span>
+                                <span class="points-count" title="12 Point(s)">
+                                    <i class="fa fa-star"></i>
+                                    <span>12</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget user-widget">
+                    <h3 class="widgettitle">En Çok Soru Soranlar</h3>
+                    <div class="hot-user-question">
+                        <ul>
+                            @{int count_1 = 0;}
+                            @foreach (var item in questionRepository.GetAll().GroupBy(x => new { x.User.Id, x.User.Name, x.User.Surname }).Select(y => new { ID = y.Key.Id, name = y.Key.Name, surname = y.Key.Surname, countOfQuestion = y.Count() }).OrderByDescending(x => x.countOfQuestion).Take(5))
+                            {
+                                count_1++;
+                                <li>
+                                    <span class="number">@count_1.ToString()</span>
+                                    <span class="username ">
+                                        <a href="" title="4">
+                                            @item.name @item.surname
+                                        </a>
+                                    </span>
+                                    <span class="questions-count" title="4 Question(s)">
+                                        <i class="fa fa-question-circle"></i>
+                                        <span>@item.countOfQuestion</span>
+                                    </span>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget user-widget">
+                    <h3 class="widgettitle">En Çok Cevaplayanlar</h3>
+                    <div class="hot-user-question">
+                        <ul>
+                            @{int count_2 = 0;}
+                            @foreach (var item in answerRepository.GetAll().GroupBy(x => new { x.User.Id, x.User.Name, x.User.Surname }).Select(y => new { ID = y.Key.Id, name = y.Key.Name, surname = y.Key.Surname, countOfQuestion = y.Count() }).OrderByDescending(x => x.countOfQuestion).Take(5))
+                            {
+                                count_2++;
+                            <li>
+                                <span class="number">1</span>
+                                <span class="username ">
+                                        <a href="" title="4">
+                                            @item.name @item.surname
+                                    </a>
+                                </span>
+                                <span class="answers-count" title="4 Answer(s)">
+                                    <i class="fa fa-comments"></i>
+                                        <span>@item.countOfQuestion</span>
+                                </span>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget user-widget">
+                    <h3 class="widgettitle">En Son Cevap Atanlar</h3>
+                    <div class="hot-user-question">
+                        <ul>
+                            @{int count_3 = 0;}
+                            @foreach (Coderin.Entity.Answer item in answerRepository.GetAll().OrderByDescending(x => x.CreateDate).Take(5))
+                            {
+                                count_3++;
+                            <li>
+                                    <span class="number">@count_3.ToString()</span>
+                                <span class="username latest">
+                                        <a href="" title="">
+                                            @item.User.Name @item.User.Surname
+                                    </a>
+                                </span>
+                            </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- END RIGHT-SIDEBAR -->
+        </div><!-- END ROW -->
+    </div><!-- END CONTAINER-FLUID -->
+    <div style="display:none;">
+        <div id="wp-temp_id-wrap" class="wp-core-ui wp-editor-wrap html-active">
+            <link rel='stylesheet' id='dashicons-css' href='~/Content/MainSite/wp-includes/css/dashicons.minc1f9.css?ver=4.4.2' type='text/css' media='all' />
+            <link rel='stylesheet' id='editor-buttons-css' href='~/Content/MainSite/wp-includes/css/editor.minc1f9.css?ver=4.4.2' type='text/css' media='all' />
+            <div id="wp-temp_id-editor-container" class="wp-editor-container"><textarea class="wp-editor-area" rows="20" tabindex="5" cols="40" name="post_content" id="temp_id"></textarea></div>
+        </div>
+    </div>
+    <!-- MODAL INSERT NEW QUESTION -->
+    <!-- MODAL SUBMIT QUESTIONS -->
+    <div class="modal fade modal-submit-questions" id="modal_submit_questions" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header asks-question">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="fa fa-times"></i>
+                    </button>
+                    <ul class="tabs-title">
+                        <li><h4 class="modal-title active" id="tab-question">Soru Sor</h4></li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div class="body-question">
+                        @if (Session["QTitle"] == null)
+                        {
+                            using (Ajax.BeginForm("AskQuestion", "Home", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divSonuc" }, new { id = "formKapsayici" }))
+                            {
+                                <input type="hidden" id="qa_nonce" name="qa_nonce" value="87892bf728">
+
+                                <div class="input-title">
+                                    <input type="text" class="submit-input" id="question_title" name="question_title" placeholder="Sorunuz" />
+                                </div>
+                                <div id="question-tags-container">
+                                    <textarea id="editor1" name="editor1"></textarea>
+                                </div>
+                                <div id="question-tags-container">
+                                    <br />
+                                    <input type="text" class="submit-input" id="question_tags" name="question_tags" placeholder="Aralarına Virgül Koyarak Etiketlerinizi Giriniz.(max 5 etiket)" />
+                                </div>
+                                <div id="question-tags-container">
+                                    <ul class="tags-list" id="tag_list">
+                                        @foreach (Coderin.Entity.Tag item in tagRepository.GetBy(x => x.IsProTag == true))
+                                        {
+                                            <li><input type="checkbox" name="TagID" id="TagID" value="@item.Id.ToString()" /> @item.Name</li>
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <button id="btn_submit_question" class="btn-submit-question">
+                                    GÖNDER
+                                </button>
+                                <p class="term-texts">
+                                    Soruyu Gönderdiğinizde <a target="_blank" href="term/index.html">Gizlilik Sözlesmesi</a> ve <a target="_blank" href="term/index.html">Kullanım Kosulları</a> nı Kabul Etmis Olacaksınız.
+                                </p>
+                            }
+                        }
+                        else
+                        {
+                            using (Ajax.BeginForm("AskQuestion", "Home", null, new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "divSonuc" }, new { id = "formKapsayici" }))
+                            {
+                                <input type="hidden" id="qa_nonce" name="qa_nonce" value="87892bf728">
+
+                                <div class="input-title">
+                                    <input type="text" class="submit-input" id="question_title" name="question_title" placeholder="Sorunuz" value="@Session["QTitle"]" />
+                                </div>
+                                <div id="question-tags-container">
+                                    <textarea id="editor1" name="editor1">@Html.Raw(Session["QBody"])</textarea>
+                                </div>
+                                <div id="question-tags-container">
+                                    <br />
+                                    <input type="text" class="submit-input" id="question_tags" name="question_tags" placeholder="Aralarına Virgül Koyarak Etiketlerinizi Giriniz.(max 5 etiket)" value="@Session["QTags"]" />
+                                </div>
+                                <div id="question-tags-container">
+                                    <ul class="tags-list" id="tag_list">
+                                        @foreach (Coderin.Entity.Tag item in tagRepository.GetBy(x => x.IsProTag == true))
+                                        {
+                                            if (Session["QExtraTags"] != null)
+                                            {
+                                                string[] splitTags = Session["QExtraTags"].ToString().Split(',');
+                                                for (int i = 0; i < splitTags.Count(); i++)
+                                                {
+                                                    if (splitTags[i] == item.Id.ToString())
+                                                    {
+                                                        <li><input type="checkbox" name="TagID" id="TagID" value="@item.Id.ToString()" checked="checked" /> @item.Name</li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><input type="checkbox" name="TagID" id="TagID" value="@item.Id.ToString()" /> @item.Name</li>
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <li><input type="checkbox" name="TagID" id="TagID" value="@item.Id.ToString()" /> @item.Name</li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+
+                                <button id="btn_submit_question" class="btn-submit-question">
+                                    GÖNDER
+                                </button>
+                                <p class="term-texts">
+                                    Soruyu Gönderdiğinizde <a target="_blank" href="term/index.html">Gizlilik Sözlesmesi</a> ve <a target="_blank" href="term/index.html">Kullanım Kosulları</a> nı Kabul Etmis Olacaksınız.
+                                </p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-submit-questions" id="edit_profile" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title" id="myModalLabel">Üyelik</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="author-edit" id="user_avatar_container" style="text-align:right;">
+                        <div class="edit-info-avatar">
+                            <a href="javascript:void(0);" class="link_change_password">Şifremi Unuttum ?</a>
+                            <a href="javascript:void(0);" class="link_change_profile">Kayıt Ol</a>
+                        </div>
+                        <span class="et_ajaxnonce" id="4c9a183eb5"></span>
+                    </div>
+                    <br />
+                    <form id="submit_edit_profile" class="form_modal_style edit_profile_form">
+                        <label>Ad Soyad</label>
+                        <input type="text" class="submit-input" id="display_name" name="display_name" placeholder="Gökhan Güven">
+
+                        <label>E-mail</label>
+                        <input type="email" class="submit-input" id="user_email" name="user_email" placeholder="gokhan@sit.com">
+
+                        <label>Kullanıcı Adı</label>
+                        <input type="text" class="submit-input" id="display_name" name="display_name" placeholder="gogo" />
+
+                        <label>Şifre</label>
+                        <input type="password" class="submit-input" id="display_name" name="display_name" placeholder="123..">
+
+                        <label>Şifre Tekrar</label>
+                        <input type="password" class="submit-input" id="display_name" name="display_name" placeholder="123..">
+
+
+                        <div class="clearfix"></div>
+
+                        <input type="submit" name="submit" value="Kaydol" class="btn-submit update_profile">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade modal-submit-questions in" id="login_register" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title modal-title-sign-in" id="myModalLabel">Giriş</h4>
+                </div>
+
+                <div class="modal-body">
+                    @using(Html.BeginForm("Login","User",FormMethod.Post,new{@id="form-login"}))
+                    {
+
+
+                   <div class="form_modal_style" id="signin_form">
+                        <label for="username">
+                            Kullanıcı Adı veya E-mail
+                        </label>
+                        <input type="text" class="email_user" name="txtEmail" id="txtEmail">
+
+                        <label for="password">
+                            Şifre
+                        </label>
+                        <input type="password" class="password_user" id="txtPassword" name="txtPassword">
+                        <div class="clearfix"></div>
+                        <input type="submit" name="submit" value="Giriş" class="btn-submit">
+                        <a href="javascript:void(0)" class="link_forgot_pass">Şifre Unuttum</a>
+                        <div class="submit-block">
+                            <a href="javascript:void(0)" class="link_sign_up">Üye Ol </a><span>yada Giriş Yap</span>
+
+                            <ul class="social-icon clearfix">
+                                <!-- google plus login -->
+                                <li class="gp"><a id="signinButton" href="#" class="sc-icon color-google gplus_login_btn"><i class="fa fa-google-plus-square"></i></a></li>
+                                <!-- twitter plus login -->
+                                <li class="tw"><a href="http://www.enginethemes.com/demo/qaengine?action=twitterauth" class="sc-icon color-twitter"><i class="fa fa-twitter-square"></i></a></li>
+                                <!-- facebook plus login -->
+                                <li class="fb"><a href="#" id="facebook_auth_btn" class="sc-icon color-facebook facebook_auth_btn"><i class="fa fa-facebook-square"></i></a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    }
+
+
+
+                    @*Begin UserRegister_PartialPage*@
+
+                    @Html.Partial("UserRegister_PartialPage")
+
+                    @*End UserRegister_PartialPage*@
+
+                    <form id="forgotpass_form" class="form_modal_style collapse">
+                        <label>E-Mail</label>
+                        <input type="text" class="name_user" name="email" id="email">
+                        <input type="submit" name="submit" value="Gönder" class="btn-submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-submit-questions" id="upload_images" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                    <h4 class="modal-title modal-title-sign-in" id="myModalLabel">Insert Images</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="upload-location" id="images_upload_container">
+                        <span class="title">Upload an image</span>
+                        <div class="input-file">
+                            <button id="images_upload_browse_button" onclick="return false;" class="">Browse</button>
+                            <!--<input type="button"  value="Browse" class="bg-button-file button" id="images_upload_browse_button">                        -->
+                            <span class="filename">No file chosen.</span>
+                            <span class="et_ajaxnonce" id="901162ca66"></span>
+                        </div>
+                    </div>
+                    <div class="upload-url">
+                        <span class="title">Add an image via URL</span>
+                        <div class="input-url">
+                            <input type="text" placeholder="https://www.domain.com/images.jpg" id="external_link" class="form-control">
+                        </div>
+
+                        <!-- alt text -->
+                        <span class="title">Alt text</span>
+                        <div class="input-url">
+                            <input type="text" id="img_alt_text" class="form-control">
+                        </div>
+
+                        <!-- description -->
+                        <span class="title">Description</span>
+                        <div class="input-url">
+                            <textarea id="img_desc" cols="30" rows="5" class="form-control" style="width:70%"></textarea>
+                        </div>
+
+                        <div class="button-event">
+                            <button type="button" id="insert" class="btn">Insert</button>
+                            <a href="javascript:void(0)" class="btn-cancel collapse" data-dismiss="modal">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL SUBMIT QUESTIONS -->
+    <!-- MODAL INSERT NEW QUESTION -->
+    <!-- TAG TEMPLATE -->
+    <script type="text/template" id="tag_item">
+
+        <input type="hidden" name="tags[]" value="{{= stripHTML(name) }}" />
+        {{= stripHTML(name) }}
+        <a href="javascript:void(0)" class="delete"><i class="fa fa-times"></i></a>
+
+    </script>
+    <script type="text/javascript">
+        function stripHTML(html) {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText;
+        }
+    </script>
+    <!-- TAG TEMPLATE -->
+    <!-- MODAL REPORT -->
+    <!-- END MODAL REPORT -->
+    <!-- CONTACT REPORT -->
+    <!-- END CONTACT REPORT -->
+    <!-- SEARCH PREVIEW TEMPLATE -->
+    <script type="text/template" id="search_preview_template">
+        <# _.each(questions, function(question){ #>
+            <div class="i-preview">
+                <a href="{{= question.permalink }}">
+                    <div class="i-preview-content">
+                        <span class="i-preview-title">
+                            {{= question.post_title.replace( search_term, '<strong>' + search_term + "</strong>" ) }}
+                        </span>
+                    </div>
+                </a>
+            </div>
+            <# }); #>
+                <div class="i-preview i-preview-showall">
+                    <# if ( total>
+                        0 && pages > 1 ) { #>
+                        <a href="{{= search_link }}">View all {{= total }} results</a>
+                        <# } else if ( pages= =1) { #>
+                            <a href="{{= search_link }}">View all results</a>
+                            <# } else { #>
+                                <a> No results found </a>
+                                <# } #>
+                </div>
+    </script>	<!-- SEARCH PREVIEW TEMPLATE -->
+    <script src="~/Content/MainSite/my.hellobar.com/d76f27ca02972f30ba61371e036ea7f15fcb37a6.js" type="text/javascript" async="async"></script>			<!--Customizer CSS-->
+    <style type="text/css">
+    </style>
+    <!--/Customizer CSS-->
+    <script type="text/template" id="poll_tag_item">
+
+        <input type="hidden" name="qa_tag[][name]" value="{{= stripHTML(name) }}" />
+        {{= stripHTML(name) }}
+        <a href="javascript:void(0)" class="delete"><i class="fa fa-times"></i></a>
+
+    </script>
+    <script type="text/javascript">
+        function stripHTML(html) {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText;
+        }
+    </script>
+    <script type="text/template" id="edit_poll_answer_item">
+        <input type="text" class="input-answer" placeholder="{{= placeholder }}" name="poll_answers[]" value="{{= post_title }}">
+        <input type="hidden" class="answer-color-picker" value="#e6e6e6">
+        <div class="function-right">
+            <span class="color-box" style="background: {{= poll_answer_color }}"></span>
+            <span class="remove-box"><i class="fa fa-trash"></i></span>
+        </div>
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/underscore.minaff7.js?ver=1.6.0'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/backbone.mincfa9.js?ver=1.1.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/includes/aecore/assets/js/marionette68b3.js?ver=1'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var ae_globals = { "ajaxURL": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php", "imgURL": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/img\/", "jsURL": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/js\/", "loadingImg": "<img class=\"loading loading-wheel\" src=\"http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-content\/themes\/qaengine\/includes\/aecore\/assets\/img\/loading.gif\" alt=\"Loading...\">", "loading": "Loading", "ae_is_mobile": "0", "plupload_config": { "max_file_size": "3mb", "url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php", "flash_swf_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.flash.swf", "silverlight_xap_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-includes\/js\/plupload\/plupload.silverlight.xap" }, "homeURL": "http:\/\/www.enginethemes.com\/demo\/qaengine", "is_submit_post": "", "is_submit_project": "", "is_single": "", "max_images": "5", "user_confirm": "0", "max_cat": "3", "confirm_message": "Are you sure to archive this?", "map_zoom": "8", "map_center": { "latitude": 10, "longitude": 106 }, "fitbounds": "", "limit_free_msg": "You have reached the maximum number of Free posts. Please select another plan.", "error": "Please fill all require fields.", "geolocation": "0", "date_format": "F j, Y", "time_format": "g:i a", "dates": { "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "daysShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "daysMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthsShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] }, "global_map_style": null, "posts_per_page": "12", "pending_questions": "0", "pending_answers": "0", "introURL": "http:\/\/www.enginethemes.com\/demo\/qaengine\/intro-2\/", "buy_pump_link": "http:\/\/www.enginethemes.com\/demo\/qaengine\/buy-package\/", "gplus_client_id": "185639095186-qp1uo53pjqb428gp2drtg5o7ladkh10l.apps.googleusercontent.com", "max_width_title": "150", "user_id": "11", "upload_images": "1" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/includes/aecore/assets/js/appengine68b3.js?ver=1'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/functionsc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var qa_front = { "form_auth": { "error_msg": "Please fill out all fields required.", "error_user": "Please enter your user name.", "error_email": "Please enter a valid email address.", "error_username": "Please enter a valid username.", "error_repass": "Please enter the same password as above.", "error_url": "Please enter a valid URL.", "error_cb": "You must accept the terms & privacy." }, "texts": { "require_login": "You must be logged in to perform this action.", "enought_points": "You don't have enought points to perform this action.", "create_topic": "Create Topic", "upload_images": "Upload Images", "insert_codes": "Insert Code", "no_file_choose": "No file chosen.", "require_tags": "Please insert at least one tag.", "add_comment": "Add comment", "cancel": "Cancel", "sign_up": "Üye Ol", "sign_in": "Giriş", "accept_txt": "Accept", "best_ans_txt": "Best answer", "forgotpass": "Şifremi Unuttum", "close_tab": "You have made some changes which you might want to save.", "confirm_account": "You must activate your account first to create questions \/ answers!.", "cancel_auth": "User cancelled login or did not fully authorize.", "banned_account": "You account has been banned, you can't make this action!", "buy_pump": "You must activate your account first to buy pump package." } };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/frontc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/pumping5152.js?ver=1.0'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/libs/jquery-countdown/jquery.plugin.min5152.js?ver=1.0'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/libs/jquery-countdown/jquery.countdown.min5152.js?ver=1.0'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/core.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/widget.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/mouse.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/draggable.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/slider.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/jquery.ui.touch-punchc682.js?ver=0.2.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-admin/js/iris.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var poll_settings = { "max_answer": "5", "max_answer_error_text": "You can only create 5 answers.", "answer_placeholder": "Your answer", "poll_chart_type": "pie_chart", "user_voted": "" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/poll5152.js?ver=1.0'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/includes/aecore/assets/js/bootstrap.mind5f7.js?ver=2.0'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/libs/modernizrc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/libs/jquery.simple-text-rotator.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/includes/aecore/assets/js/jquery.validate.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/position.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/menu.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/jquery/ui/autocomplete.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='~/Content/MainSite/www.google.com/recaptcha/apic1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/libs/waypoints.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/libs/waypoints-stickyc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var raty = { "hint": ["bad", "poor", "nice", "good", "gorgeous"] };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/includes/aecore/assets/js/chosenc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/libs/classiec1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/scriptsc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/moment.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/bootstrap-datetimepicker.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/colorpickerc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var facebook_auth = { "appID": "789782421076809", "auth_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/?action=authentication" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/facebookauthc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var google_auth = { "appID": "185639095186-qp1uo53pjqb428gp2drtg5o7ladkh10l.apps.googleusercontent.com", "auth_url": "http:\/\/www.enginethemes.com\/demo\/qaengine\/?action=authentication" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/themes/qaengine/js/googleauthc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/plugins/et_demobar_new_CE/js/jquery.mCustomScrollbar.concat.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var main = { "ajaxUrl": "http:\/\/www.enginethemes.com\/demo\/qaengine\/wp-admin\/admin-ajax.php" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-content/plugins/et_demobar_new_CE/js/main4e44.js?ver=1.3'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var wpColorPickerL10n = { "clear": "Clear", "defaultString": "Default", "pick": "Select Color" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-admin/js/color-picker.minc1f9.js?ver=4.4.2'></script>
+    <script type='text/javascript' src='~/Content/MainSite/wp-includes/js/wp-embed.minc1f9.js?ver=4.4.2'></script>
+
+    <script type="text/javascript">
+        tinyMCEPreInit = {
+            baseURL: "",
+            suffix: ".min",
+            mceInit: {},
+            qtInit: {},
+            ref: { plugins: "", theme: "modern", language: "" },
+            load_ext: function (url, lang) { var sl = tinymce.ScriptLoader; sl.markDone(url + '/langs/' + lang + '.js'); sl.markDone(url + '/langs/' + lang + '_dlg.js'); }
+        };
+    </script>
+    <script type="text/javascript">
+        var ajaxurl = "wp-admin/admin-ajax.html";
+        (function () {
+            var init, id, $wrap;
+
+            if (typeof tinymce !== 'undefined') {
+                for (id in tinyMCEPreInit.mceInit) {
+                    init = tinyMCEPreInit.mceInit[id];
+                    $wrap = tinymce.$('#wp-' + id + '-wrap');
+
+                    if (($wrap.hasClass('tmce-active') || !tinyMCEPreInit.qtInit.hasOwnProperty(id)) && !init.wp_skip_init) {
+                        tinymce.init(init);
+
+                        if (!window.wpActiveEditor) {
+                            window.wpActiveEditor = id;
+                        }
+                    }
+                }
+            }
+            if (typeof quicktags !== 'undefined') {
+                for (id in tinyMCEPreInit.qtInit) {
+                    quicktags(tinyMCEPreInit.qtInit[id]);
+
+                    if (!window.wpActiveEditor) {
+                        window.wpActiveEditor = id;
+                    }
+                }
+            }
+        }());
+    </script>
+    <style type="text/css">
+        .post-a-job .step .toggle-title,
+        .btn-background,
+        .icon-border {
+            box-sizing: content-box;
+        }
+    </style>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            if (window.location.hash == '#register') {
+                setTimeout(function () {
+                    $('#login_register').trigger('click');
+                }, 300);
+            }
+        });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="http://www.googletagmanager.com/ns.html?id=GTM-TS4RDD"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            '../../../www.googletagmanager.com/gtm5445.html?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TS4RDD');</script>
+    <!-- End Google Tag Manager -->
+
+    <div class="et-plugin-demobar">
+        <div id="demobar-container" class="demobar-container show-bar">
+            <div class="button-block">
+                <ul class="list-actions">
+                    <li>
+                        <a href="https://www.enginethemes.com/member/signup/qaengine" class=" btn-get-now btn-bn prevent">Get It Now</a>
+                    </li>
+                    <li>
+                        <a href="https://www.enginethemes.com/themes/qaengine/" class=" btn-sale-page  prevent">More Details</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="devices-block">
+                <div class="header-demobar-block">
+                    <span>Devices</span>
+                </div>
+                <div class="change-agent">
+                    <ul>
+                        <li class="active">
+                            <a href="http://www.enginethemes.com/demo/qaengine" class="desk prevent" id="change_desktop"></a>
+                            <span>Desktop</span>
+                        </li>
+                        <li class="">
+                            <a href="tablet/index.html" class="tab prevent" id="change_tablet"></a>
+                            <span>Tablet</span>
+                        </li>
+                        <li class="">
+                            <a href="mobile/index.html" class="phone prevent" id="change_mobile"></a>
+                            <span>Mobile</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="collapse-block">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" data-curuser="admindemo">
+                    <div class="panel panel-default" data-user="john">
+                        <div class="panel-heading" role="tab" id="headingjohn">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsejohn" aria-expanded="false" aria-controls="collapsejohn"
+                                   class="collapsed">
+                                    View as Author												<i class="fa iconBlock"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapsejohn" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingjohn">
+                            <div class="panel-body">
+                                <ul class="list-options">
+
+                                    <li class="">
+                                        <a href="index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="View & search for Q&A, or quickly ask questions & share your answers">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/SdrRiDx.jpg" alt="">
+                                            </div>
+                                            <span>Home Page</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="blog/question/how-to-become-a-billionaire-in-the-next-5-years/index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="In a question, see the best answer, take actions such as upvote or downvote ">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/rvMFZWA.jpg" alt="">
+                                            </div>
+                                            <span>Question Page</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="blog/poll/what-s-your-favorite-song/index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Give your answer to a poll and see quick result statistics">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/aDaM6vn.png" alt="">
+                                            </div>
+                                            <span>Poll Page</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="blog/member/alex/index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Easily manage your activities on site, also pump your questions from here">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/FWX8obM.jpg" alt="">
+                                            </div>
+                                            <span>User Profile & Statics</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="badges/index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Understand the badge and point system to upgrade your profile">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/rC2nglN.jpg" alt="">
+                                            </div>
+                                            <span>Badge System</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="buy-package/index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Pump your questions to top and quickly get answers from the community">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/z7coMgM.png" alt="">
+                                            </div>
+                                            <span>Buy Pump</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default" data-user="guest">
+                        <div class="panel-heading" role="tab" id="headingguest">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseguest" aria-expanded="false" aria-controls="collapseguest"
+                                   class="collapsed">
+                                    View as Visitor												<i class="fa iconBlock"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseguest" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingguest">
+                            <div class="panel-body">
+                                <ul class="list-options">
+
+                                    <li class="">
+                                        <a href="index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="View & search for Q&A shared by the community">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/SdrRiDx.jpg" alt="">
+                                            </div>
+                                            <span>Home Page</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="index.html#register" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Join to share knowledge by instant social login or simple signup steps">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/aeTmNUc.png" alt="">
+                                            </div>
+                                            <span>Register</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default" data-user="admindemo">
+                        <div class="panel-heading" role="tab" id="headingadmindemo">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseadmindemo" aria-expanded="true" aria-controls="collapseadmindemo"
+                                   class="">
+                                    View as Admin												<i class="fa iconBlock"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseadmindemo" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingadmindemo">
+                            <div class="panel-body">
+                                <ul class="list-options">
+
+                                    <li class="">
+                                        <a href="http://www.enginethemes.com/demo/qaengine" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Grab an overview of everything displayed on your site">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/SdrRiDx.jpg" alt="">
+                                            </div>
+                                            <span>Home Page</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="blog/question/how-to-become-a-billionaire-in-the-next-5-years/index.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Edit a question, or delete it in front-end">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/rvMFZWA.jpg" alt="">
+                                            </div>
+                                            <span>Question Page</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="wp-admin/admine3cb.html?page=et-badge" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Set levels for user badge and point system">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/rC2nglN.jpg" alt="">
+                                            </div>
+                                            <span>User Badges Manage</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="wp-admin/admin6c23.html?page=et-pump" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Establish all necessary settings for question Pump">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/z7coMgM.png" alt="">
+                                            </div>
+                                            <span>Pump & Payment Manage</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="wp-admin/admin6d2f.html?page=et-settings" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Take control of your site data with a user-centered Admin Dashboard">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/3Hx3Xo4.png" alt="">
+                                            </div>
+                                            <span>Admin Dashboard</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="wp-admin/widgets.html" class="change-screen">
+                                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                                 data-html="true" data-title="Easily drag & drop widgets you prefer to appear on your site">
+                                                <img src="../../../static.enginethemes.com/demobar/QAE/Ea7w1k5.png" alt="">
+                                            </div>
+                                            <span>Widget Sidebar</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="related-themes">
+                <h5>Also check out these related themes</h5>
+                <ul class="list-options">
+                    <li>
+                        <a href="http://www.enginethemes.com/demo/forumengine/">
+                            <div class="frame-img" rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top"
+                                 data-html="true" data-title="ForumEngine - Community Forum Wordpress Theme">
+                                <img src="../../../static.enginethemes.com/demobar/QAE/cqNhY1H.png" alt="">
+                            </div>
+                            <span>Forum Engine</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+    <!-- PACKAGE -->
+    <div class=" " id="package_modal" aria-hidden="true">
+        <div class="modal-demobar-dialog">
+            <div class="container">
+                <div class="col-md-12">
+                    <button type="button" class="btn-close-modal-bar close_modalbar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <section id="package-page">
+                <!-- PRICING-->
+                <!--<link rel="stylesheet" type="text/css" href="--><!--/css/xmas.css">-->
+                <link rel="stylesheet" type="text/css" href="~/Content/MaintSite/wp-content/plugins/et_demobar_new_CE/css/pricing-block.css">
+
+
+                <div id="pricing-item" class="ethome-sale-page pricing-block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <section class="title-block">
+                                    <h2>Here are what we offer</h2>
+                                </section>
+
+                                <!--				<div class="xmas-price">-->
+                                <!--					<div class="ribbon-stitches-top"></div>-->
+                                <!--					<div class="ribbon-content">Xmas price <span>(extra 20% off)</span> apply from Dec 10 - 30</div>-->
+                                <!--					<div class="ribbon-stitches-bottom"></div>-->
+                                <!--				</div>-->
+
+                                <ul class="list-pricing">
+                                    <li>
+                                        <div class="pricing-wrapper">
+                                            <!--				<div class="xmas-price">-->
+                                            <!--					<div class="ribbon-stitches-top"></div>-->
+                                            <!--					<div class="ribbon-content">Xmas price <span>(extra 20% off)</span> apply from Dec 10 - 30</div>-->
+                                            <!--					<div class="ribbon-stitches-bottom"></div>-->
+                                            <!--				</div>-->
+                                            <div class="pricing-title" style="cursor: default">
+                                                <h2>
+                                                    Single Theme
+                                                </h2>
+                                            </div>
+                                            <div class="pricing-wrapper-under" onclick="window.location.href='https://www.enginethemes.com/member/signup/qaengine';">
+                                                <div class="pricing-list-option-wrapper">
+                                                    <h3 class="pricing-number">
+                                                        <sup>$</sup>89
+                                                    </h3>
+                                                    <ul>
+                                                        <li><strong>QAEngine theme</strong></li>
+                                                        <li>Lifetime license</li>
+                                                        <li>Unlimited websites</li>
+                                                        <li>Basic child themes</li>
+                                                        <li>Full PSD Package</li>
+                                                        <li>Documentation</li>
+                                                        <li>12 months of free updates</li>
+                                                        <li>12 months of official support</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="btn-pricing-wrapper">
+                                                    <a href="https://www.enginethemes.com/member/signup/qaengine" class="btn-sumary btn-pricing"> Get It Now <i class="fa fa-chevron-right"></i> </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="pricing-focus">
+                                        <div class="pricing-wrapper ">
+                                            <!--				<div class="xmas-price">-->
+                                            <!--					<div class="ribbon-stitches-top"></div>-->
+                                            <!--					<div class="ribbon-content">Xmas price <span>(extra 20% off)</span> apply from Dec 10 - 30</div>-->
+                                            <!--					<div class="ribbon-stitches-bottom"></div>-->
+                                            <!--				</div>-->
+                                            <div class="pricing-title" style="cursor: default">
+                                                <h2>
+                                                    Community-Package
+                                                    <span>
+                                                        <i class="fa fa-arrow-down"></i>
+                                                        <span class="number-task-off">20%</span>
+                                                        off
+                                                    </span>
+                                                </h2>
+                                            </div>
+                                            <div class="pricing-wrapper-under" onclick="window.location.href='https://www.enginethemes.com/member/signup/Community-Package';">
+                                                <div class="pricing-list-option-wrapper">
+                                                    <h3 class="pricing-number">
+                                                        <span class="number-old"><sup>$</sup>139</span><sup>$</sup>109
+                                                    </h3>
+                                                    <ul>
+                                                        <li rel="tooltip" data-toggle="tooltip" data-trigger="hover" data-placement="top" data-html="true"
+                                                            data-title="
+												<ul class='bonus_pricing'>
+													<li style='color:#fff;'><span>ForumEngine</span> <span>$49</span></li>
+													<li style='color:#fff;'><span>QAEngine</span> <span>$89</span></li>
+												</ul>"><strong>ForumEngine & QAEngine</strong>
+											<span class="question-ext">
+												<i class="fa fa-question-circle"></i>
+											</span>
+                                        </li>
+                                                        <li>Lifetime license</li>
+                                                        <li>Unlimited websites</li>
+                                                        <li>Basic child themes</li>
+                                                        <li>Full PSD Packages</li>
+                                                        <li>Documentation</li>
+                                                        <li>12 months of free updates</li>
+                                                        <li>12 months of official support</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="btn-pricing-wrapper">
+                                                    <a href="https://www.enginethemes.com/member/signup/Community-Package" class="btn-sumary btn-pricing">Get It Now <i class="fa fa-chevron-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                    </li>
+                                </ul>
+                                <div class="text-center check-upgrades">
+                                    <!-- Already own FreelanceEngine? Check out <a href="http://www.enginethemes.com/member/signup/FrE-upgrade" title="Upgrade packages">extension upgrades</a> here ! -->
+                                    <br />Besides standard themes, we also provide  <a href="https://www.enginethemes.com/customization/" target="_blank" title="Customization services"><strong>Advanced Customization Theme Solution </strong></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END / PRICING -->
+            </section>
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- END / PACKAGE -->
+    <div class="demobar-blur-theme"> </div>
+    <script type="text/javascript">
+        _.templateSettings = {
+            evaluate: /\<\#(.+?)\#\>/g,
+            interpolate: /\{\{=(.+?)\}\}/g,
+            escape: /\{\{-(.+?)\}\}/g
+        };
+    </script>
+    <script type="text/javascript" id="frontend_scripts">
+        (function ($) {
+            $(document).ready(function () {
+
+
+                if (typeof QAEngine.Views.Front != 'undefined') {
+                    QAEngine.App = new QAEngine.Views.Front();
+                }
+
+                if (typeof QAEngine.Views.Intro != 'undefined') {
+                    QAEngine.Intro = new QAEngine.Views.Intro();
+                }
+
+                if (typeof QAEngine.Views.UserProfile != 'undefined') {
+                    QAEngine.UserProfile = new QAEngine.Views.UserProfile();
+                }
+
+                if (typeof QAEngine.Views.Single_Question != 'undefined') {
+                    QAEngine.Single_Question = new QAEngine.Views.Single_Question();
+                }
+
+
+                /*======= Open Reset Password Form ======= */
+
+                /*======= Open Reset Password Form ======= */
+
+                /*======= Open Confirmation Message Modal ======= */
+
+            });
+        })(jQuery);
+    </script>
+    <script type="text/javascript" id="current_user">
+        currentUser = { "ID": 11, "id": 11, "cap": { "vote_up": true, "add_comment": true, "vote_down": true, "create_tag": true, "edit_question": true, "edit_answer": true, "edit": true }, "register_status": "" }		</script>
+    <!-- GOOGLE ANALYTICS CODE --><!-- END GOOGLE ANALYTICS CODE -->        <!-- localize validator -->
+    <script type="text/javascript">
+        (function ($) {
+            if (typeof $.validator !== 'undefined') {
+                $.extend($.validator.messages, {
+                    required: "This field is required.",
+                    email: "Please enter a valid email address.",
+                    url: "Please enter a valid URL.",
+                    number: "Please enter a valid number.",
+                    digits: "Please enter only digits.",
+                    equalTo: "Please enter the same value again.",
+                    date: "Please enter a valid date.",
+                    creditcard: "Please enter a valid credit card number.",
+                    accept: "Please enter a value with a valid extension.",
+
+                    maxlength: $.validator.format("Please enter no more than {0} characters."),
+                    minlength: $.validator.format("Please enter at least {0} characters."),
+                    rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
+                    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+                    min: $.validator.format("Please enter a value greater than or equal to {0}."),
+                    max: $.validator.format("Please enter a value less than or equal to {0}.")
+                });
+            }
+        })(jQuery);
+    </script>
+
+
+    <script>
+        CKEDITOR.replace('editor1');
+    </script>
+    <script type="text/javascript">
+        jQuery("#btn_submit_question").click(function () {
+            var qTitle = jQuery("#question_title").val();
+            var qBody = CKEDITOR.instances.editor1.getData();
+
+            if (qTitle == "" || qBody == "") {
+                alert("Lütfen Gerekli Alanları Doldurunuz");
+                event.preventDefault();
+            }
+            var qTags = jQuery("#question_tags").val().split(",");
+            if (qTags.length > 5) {
+                alert("En Fazla 5 Etiket Yazınız");
+                event.preventDefault();
+            }
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body><!-- END BODY -->
+</html>

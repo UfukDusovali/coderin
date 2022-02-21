@@ -1,0 +1,41 @@
+﻿@model Coderin.Entity.UserBehaviour
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<section class="header">
+    <div>
+        <h4>&nbsp; &nbsp; &nbsp; &nbsp; @Model.Name</h4>
+    </div>
+</section>
+<hr />
+
+<div>
+
+    <dl class="dl-horizontal">
+
+        <dd>
+           <b>Sorunun Başlığı :</b> @Model.Question.Name
+        </dd>
+
+        <dd>
+           <b>Cevabın Başlığı :</b>  @Html.DisplayFor(model => model.Answer.Name)
+        </dd>
+
+        <dd>
+            <b>Yorumun Başlığı :</b> @Html.DisplayFor(model => model.Comment.Name)
+        </dd>
+
+        <dd>
+            <b>Kullanıcı :</b> @Model.User.Name @Model.User.Surname
+        </dd>
+
+        
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

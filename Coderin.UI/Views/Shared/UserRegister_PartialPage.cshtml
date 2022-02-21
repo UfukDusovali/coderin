@@ -1,0 +1,105 @@
+﻿@using Coderin.Entity;
+@*@model User*@
+<div id="signup_form" class="form_modal_style">
+
+    @using (Html.BeginForm("Create", "User", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+
+        @*<div class="editor-label">
+                        Rol Seçiniz :
+                    </div>
+            <label>Rol Seçiniz :</label>
+            <div class="submit-input">
+                @Html.DropDownListFor(model => model.AuthorityId, ((List<Authority>)ViewData["Authorities"]).Select(x => new SelectListItem
+                       {
+                           Text = x.Name,
+                           Value = x.Id.ToString()
+                       }), "- Rol Seçiniz -", new { @id = "drpAuthorities" })
+                @Html.ValidationMessageFor(model => model.AuthorityId)
+            </div>
+
+
+                <div class="editor-label">
+                        Ad :
+                    </div>*@
+        <label>Ad</label>
+        <input type="text" class="submit-input" id="Name" name="Name" placeholder="name" required>
+
+        <label>Soyad</label>
+        <input type="text" class="submit-input" id="Surname" name="Surname" placeholder="surname" required>
+
+        <label>E-mail</label>
+        <input type="email" class="submit-input" id="Mail" name="Mail" placeholder="example@mail.com" required>
+
+        <label>Şifre</label>
+        <input type="password" class="submit-input" id="Password" name="Password" placeholder="********" required>
+
+
+
+        <div class="clearfix"></div>
+
+        <input type="submit" id="btnEkle" name="submit" value="Üye Ol" class="btn-submit">
+        <a href="javascript:void(0)" class="link_sign_in">Giriş</a>
+
+        <div class="clearfix"></div>
+
+        <p class="policy-sign-up">
+            Üye Olduğunuz Taktirde  <a target="_blank" href="#">Gizlilik Sözleşmesini</a> ve <a target="_blank" href="#">Kullanıcı Sözleşmesini</a> Kabul Etmiş Olacaksınız.
+        </p>
+        <script type="text/javascript">
+            jQuery("#btnEkle").click(function () {
+                if (jQuery("#Mail").val() == "") {
+                    alert("Boş Alanları  Doldurmalısınız");
+
+                    event.preventDefault();
+                }
+
+                else if (jQuery("#Password").val().length < 6 || jQuery("#Password").val().length > 15) {
+                    alert("Şifreniz 6 ile 15 karakter arasında olmalı");
+
+                    event.preventDefault();
+
+                }
+
+
+            });
+        </script>
+    }
+
+    @section scripts{
+        @System.Web.Optimization.Scripts.Render("~/bundles/jqueryval")
+    }
+</div>
+
+
+
+
+@*<form id="signup_form" class="form_modal_style">
+        <label>Ad Soyad</label>
+        <input type="text" class="submit-input" id="display_name" name="display_name" placeholder="Gökhan Güven">
+
+        <label>E-mail</label>
+        <input type="email" class="submit-input" id="user_email" name="user_email" placeholder="gokhan@sit.com">
+
+        <label>Kullanıcı Adı</label>
+        <input type="text" class="submit-input" id="display_name" name="display_name" placeholder="gogo" />
+
+        <label>Şifre</label>
+        <input type="password" class="submit-input" id="display_name" name="display_name" placeholder="123..">
+
+        <label>Şifre Tekrar</label>
+        <input type="password" class="submit-input" id="display_name" name="display_name" placeholder="123..">
+
+
+        <div class="clearfix"></div>
+
+        <input type="submit" name="submit" value="Üye Ol" class="btn-submit">
+        <a href="javascript:void(0)" class="link_sign_in">Giriş</a>
+
+        <div class="clearfix"></div>
+
+        <p class="policy-sign-up">
+            Üye Olduğunuz Taktirde  <a target="_blank" href="#">Gizlilik Sözleşmesini</a> ve <a target="_blank" href="#">Kullanıcı Sözleşmesini</a> Kabul Etmiş Olacaksınız.
+        </p>
+    </form>*@

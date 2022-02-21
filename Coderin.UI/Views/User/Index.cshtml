@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Coderin.Entity.User>
+@{
+    ViewBag.Title = "Index";
+    Layout ="~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    @item.Name@: @item.Surname   <a href="/User/Edit/@item.Id">Düzenle</a>  <a href="/User/Delete/@item.Id" onclick="return confirm('Kullanıcı Silinecektir Emin Misiniz?');">Sil</a><br />
+}
+

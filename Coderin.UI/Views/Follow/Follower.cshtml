@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Coderin.Entity.Follow>
+
+@{
+    ViewBag.Title = "Following";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-8 main-content">
+    <div class="main-user-list">
+        <ul id="main_users_list" class="row">
+            @foreach (Coderin.Entity.Follow item in Model)
+            {
+                <li class="user-item col-md-4 col-xs-6">
+                    <span class="user-avatar">
+                        <img itemprop="image" src="http://enginethemes.com/demo/qaengine/wp-content/uploads/2015/01/128323.jpg" class="avatar" alt="">
+                    </span>
+                    <div class="left-info">
+                        <a href="~/User/Profil/@item.FollowerId"><span class="display_name">@item.User1.Name @item.User1.Surname</span></a><br>
+                        <span class="location">
+                            <i class="fa fa-map-marker"></i> @item.User1.UserDetail.City.Name
+                        </span>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div><!-- END MAIN-QUESTIONS-LIST -->
+    <div class="clearfix grey-line"></div>
+    <div class="row paginations home">
+        <div class="col-md-12">
+        </div>
+    </div><!-- END MAIN-PAGINATIONS -->
+</div>

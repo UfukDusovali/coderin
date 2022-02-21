@@ -1,0 +1,41 @@
+﻿@model Coderin.Entity.Question
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+@{
+    string data2 = Html.Raw(Model.QuestionBody).ToString();
+    string a = System.Text.RegularExpressions.Regex.Replace(data2, "<[^>]*>", string.Empty);
+}
+<section class="header">
+    <div>
+        <h4>&nbsp; &nbsp; &nbsp; &nbsp; @Model.Name</h4>
+    </div>
+</section>
+<hr />
+<div class="col-md-3 col-sm-4">
+    <i class="fa fa-fw fa-eye"></i> @Model.Views
+    <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-pencil-square-o"></i> @Model.Answers.Count</div>
+    <div class="col-md-3 col-sm-4"><i class="fa fa-fw fa-check-circle-o"></i> @Model.Vote</div>
+
+</div>
+<br />
+<hr />
+<br />
+<br />
+
+<dl class="dl-horizontal">
+    <dd>
+        @a
+    </dd>
+</dl>
+<hr />
+
+
+
+
+<p>
+    <a href="~/Admin/Question/Edit/@Model.Id">Edit</a> |
+    @Html.ActionLink("Back to List", "Index")
+</p>
